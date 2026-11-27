@@ -39,6 +39,7 @@ IDLE_CURRENT = 0.08
 R_TH, C_TH, T_AMB = 14.0, 45.0, 25.0
 T_WARN, T_LIMIT = 50.0, 65.0
 PCT_WARN, PCT_CRIT = 60.0, 85.0
+ALERT_ON, ALERT_HOLD = 0.4, 1.5          # s: an alert must persist to show, then lingers
 RAIL = {"Rail 1 (J2, J4, J6)": ["shoulder", "wrist_pitch", "gripper_pinion"],
         "Rail 2 (J1, J3, J5)": ["base_yaw", "elbow", "wrist_roll"]}
 
@@ -89,6 +90,7 @@ class Twin:
         self.pct = {j: 0.0 for j in JOINTS}
         self.cur = {j: IDLE_CURRENT for j in JOINTS}
         self.expected = {j: 0.0 for j in JOINTS}
+        self.p_avg = {j: 0.0 for j in JOINTS}      # W, ~5 s moving average (for the 65 °C forecast)
         self.reset("ready")
 
     def key_targets(self, name):
@@ -151,9 +153,16 @@ class Twin:
             p = self.cur[j] ** 2 * SUPPLY_V / STALL_CURRENT[SERVO[j]]
             self.temp[j] += dt * (p - (self.temp[j] - T_AMB) / R_TH) / C_TH
 
+    def update_power(self, dt, tau=5.0):
+        """Smooth the electrical power so the time-to-limit forecast does not jump with every move."""
+        k = min(1.0, dt / tau)
+        for j in JOINTS:
+            p = self.cur[j] ** 2 * SUPPLY_V / STALL_CURRENT[SERVO[j]]
+            self.p_avg[j] += (p - self.p_avg[j]) * k
+
     def minutes_to_limit(self, j):
         """Minutes until 65 °C if this power is held (first-order model). None: never reached."""
-        p = self.cur[j] ** 2 * SUPPLY_V / STALL_CURRENT[SERVO[j]]
+        p = self.p_avg[j]
         t_inf = T_AMB + p * R_TH
         T = self.temp[j]
         if T >= T_LIMIT:
@@ -227,7 +236,7 @@ class Controller:
         self.port = ""
         self.vin = None
         self.events = deque(maxlen=80)
-        self._active = set()
+        self._alert_state = {}               # key -> first/last seen, shown (debounced alerts)
         self.message = ""
         if port:
             self.connect(port)
@@ -264,6 +273,7 @@ class Controller:
                         self.demo_t += dt
                         self.targets = self._demo_targets(self.demo_t)
                         self._send_targets()
+                tw.update_power(dt * self.warp)
                 self._update_events()
 
     def _demo_targets(self, t):
@@ -397,12 +407,26 @@ class Controller:
         return out
 
     def _update_events(self):
-        cur = self.alerts()
-        keys = {k for _, k, _ in cur}
-        for lvl, k, text in cur:
-            if k not in self._active and lvl >= 1:
-                self._event(lvl, text)
-        self._active = keys
+        """Debounce alerts: one appears only after its condition has held for ALERT_ON seconds and
+        stays ALERT_HOLD seconds after it clears, so short torque spikes while moving between poses
+        do not make the warning list (and the page layout) flicker."""
+        now = time.time()
+        for lvl, k, text in self.alerts():
+            s = self._alert_state.get(k)
+            if s is None:
+                s = self._alert_state[k] = {"first": now, "shown": False}
+            s.update(last=now, lvl=lvl, text=text)
+            if not s["shown"] and now - s["first"] >= ALERT_ON:
+                s["shown"] = True
+                if lvl >= 1:
+                    self._event(lvl, text)
+        for k in [k for k, s in self._alert_state.items()
+                  if now - s["last"] > (ALERT_HOLD if s["shown"] else 0.05)]:
+            del self._alert_state[k]
+
+    def visible_alerts(self):
+        return sorted(((s["lvl"], k, s["text"]) for k, s in self._alert_state.items() if s["shown"]),
+                      key=lambda a: -a[0])
 
     # --- state (broadcast to web) -------------------------------------------------------------
     def snapshot(self):
@@ -417,7 +441,7 @@ class Controller:
                              "temp": round(tw.temp[j], 1), "ttl": None if mins is None else round(mins, 1),
                              "exp": round(tw.expected[j], 1), "lvl": level(tw.pct[j], tw.temp[j])}
             rails = {r: round(sum(tw.cur[j] for j in js), 2) for r, js in RAIL.items()}
-            alerts = [{"lvl": lvl, "text": text} for lvl, _, text in sorted(self.alerts(), key=lambda a: -a[0])]
+            alerts = [{"lvl": lvl, "text": text} for lvl, _, text in self.visible_alerts()]
             return {
                 "type": "state", "mode": self.mode, "port": self.port if self.serial else "",
                 "simTime": round(float(d.time), 2), "demo": None if self.demo_t is None else round(self.demo_t % DEMO[-1][0], 2),

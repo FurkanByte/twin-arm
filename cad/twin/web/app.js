@@ -316,7 +316,14 @@ function updatePanels() {
   $('#statusDot').className = `dot l${worst}`;
   $('#statusText').textContent = st.stopped ? 'Stopped: arm is held in place'
     : worst === 0 ? 'All servos normal' : worst === 1 ? 'Caution' : 'At limit: action required';
-  $('#alerts').innerHTML = st.alerts.slice(0, 6).map((a) => `<li class="l${a.lvl}">${a.text}</li>`).join('');
+  // fixed three-row area: the card never changes height, so nothing below it jumps
+  const A = st.alerts;
+  const rows = A.length > 3 ? A.slice(0, 2) : A;
+  let html = rows.map((a) => `<li class="l${a.lvl}" title="${a.text}">${a.text}</li>`).join('');
+  if (A.length > 3) html += `<li class="more">+${A.length - 2} more warnings (see the event log in Advanced)</li>`;
+  if (!A.length) html = '<li class="none">No active warnings.</li>';
+  const ul = $('#alerts');
+  if (ul.dataset.html !== html) { ul.innerHTML = html; ul.dataset.html = html; }
   $('#msg').textContent = st.message || '';
 
   // servos
