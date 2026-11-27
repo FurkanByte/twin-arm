@@ -1,20 +1,19 @@
-/cad/STEP/
-/cad/STL/
-/cad/GLB/
-/cad/3MF/
-/cad/DXF/
-/cad/tmp/
-/tmp/
-__pycache__/
-/cad/freecad/parts/
-/cad/freecad/build_freecad.log
+# generated exports and scratch (cad/exports.py, renders, experiments)
+/build/
+
+# FreeCAD intermediates (freecad/export_parts.py, build_freecad.py)
+/freecad/parts/
+/freecad/drawings/
+/freecad/quick.FCStd
+/freecad/build_freecad.log
 *.FCBak
-/.playwright-mcp/
-/cad/render/*.glb
-/cad/render/*.png
-/cad/freecad/drawings/
-/cad/freecad/quick.FCStd
-/cad/sim_runs/fea/*/result.vtu
-/cad/sim_runs/fea/*/result.glb
-/cad/sim_runs/fea/*/ccx.inp
+
+# large raw FEA outputs (the summary, json and images stay)
+/simulation/results/fea/*/result.vtu
+/simulation/results/fea/*/result.glb
+/simulation/results/fea/*/ccx.inp
+
+# local-only files
 /TwinArm5_Brosur_TR.pdf
+/.playwright-mcp/
+__pycache__/

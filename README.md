@@ -5,9 +5,9 @@ with its digital twin. The twin shows the real arm's joint angles (from the serv
 load (from the servo currents) and temperature in real time. When the arm is not connected, the
 same model can be driven in MuJoCo.
 
-Project brochure: [TwinArm5_Brochure.pdf](TwinArm5_Brochure.pdf)
+Project brochure: [docs/TwinArm5_Brochure.pdf](docs/TwinArm5_Brochure.pdf)
 
-![TwinArm-5](cad/docs/img/twinarm_ready.png)
+![TwinArm-5](docs/img/twinarm_ready.png)
 
 The design went through four independent "red team" reviews: mechanics/assembly,
 kinematics/gripper, electronics, and bill of materials/printing. The 16 blockers and more than 30
@@ -19,7 +19,7 @@ back of the base to the control box. At the pitch joints the harness passes thro
 (6804 bearing, Ø13 bore). At the base and wrist rotations it coils like a clock spring inside a
 closed cable chamber.
 
-![Internal cable path (section)](cad/docs/img/internal_cabling_section.png)
+![Internal cable path (section)](docs/img/internal_cabling_section.png)
 
 ## Specifications
 
@@ -39,7 +39,7 @@ closed cable chamber.
 
 ## Validation results
 
-### Physics simulation (MuJoCo, `cad/checks/sim_dynamics.py`)
+### Physics simulation (MuJoCo, `simulation/dynamics.py`)
 
 Each servo was modeled in the simulation as follows:
 - **Torque limit:** stall torque (6 V).
@@ -61,9 +61,9 @@ The internal cabling (6804 bearings, thicker cable covers, the harness itself) m
 the shoulder to its thermal limit, so rest periods should be added to the loop; the twin warns
 about this in advance using its thermal model.
 
-![demo simulation](cad/docs/img/sim_demo_150g.png)
+![demo simulation](docs/img/sim_demo_150g.png)
 
-### Strength (FEA, CalculiX, `cad/checks/fea_run.py`)
+### Strength (FEA, CalculiX, `simulation/fea_run.py`)
 
 Values used for the analysis:
 - **Material:** PETG FDM, weakest direction (between layers): E = 1800 MPa, yield = **25 MPa** (conservative).
@@ -92,7 +92,7 @@ analysis. The real behavior of the screwed joints is not modeled either.
 
 ## Mechanical design
 
-![grasp pose](cad/docs/img/twinarm_grasp.png)
+![grasp pose](docs/img/twinarm_grasp.png)
 
 **Pitch joints (shoulder, elbow, wrist pitch):**
 - The servo slides into the block of the previous link from the +Y side.
@@ -106,7 +106,7 @@ analysis. The real behavior of the screwed joints is not modeled either.
 
 ### Internal cable path
 
-![Internal cable path, mid-section in the candle pose](cad/docs/img/internal_cabling_candle.png)
+![Internal cable path, mid-section in the candle pose](docs/img/internal_cabling_candle.png)
 
 - **Servo → channel:** each servo's flat cable exits from the end face and passes through the slot
   at the bottom of the pocket into the internal channel (13×9 mm) in the block's −Y wall.
@@ -183,7 +183,7 @@ The harness is pulled from the tip (gripper) toward the base, before each joint 
 
 ## Electronics
 
-![control box](cad/docs/img/control_box.png)
+![control box](docs/img/control_box.png)
 
 ```
  12V 10A PSU ─ XT60 ─ 15A fuse ─ relay contact ─ Wago ─┬─ XL4016 #1 (6.0V) ─ 1000µF ─┬─ INA226 ─ J2 shoulder
@@ -228,8 +228,8 @@ The harness is pulled from the tip (gripper) toward the base, before each joint 
 
 ## Full bill of materials
 
-The full list is in **[BOM.md](BOM.md)** (and [BOM.csv](BOM.csv) for Excel). The list is generated
-by `cad/checks/bom.py` **by counting from the CAD assembly**: every screw, insert, nut, bearing,
+The full list is in **[bom/BOM.md](bom/BOM.md)** (and [bom/BOM.csv](bom/BOM.csv) for Excel). The list is generated
+by `bom/bom.py` **by counting from the CAD assembly**: every screw, insert, nut, bearing,
 sensor and module is counted individually. Cables, solder and similar consumables that are not
 drawn in CAD are added separately. Cable quantities are calculated from the actual length of the
 internal cable paths. Prices are in TL including VAT. Stock was checked on the product pages on
@@ -284,19 +284,19 @@ the 6006) and the hollow shaft (Ø20).
 
 - **Live mode:** the twin shows the real angles (pot), currents and temperatures (1 Hz, 10 bit)
   coming from the ESP32 at 100 Hz. The links are colored by current and temperature.
-- **Sim mode:** commands go only to the MuJoCo model (`cad/sim/twinarm.xml`). The model has the
+- **Sim mode:** commands go only to the MuJoCo model (`simulation/models/mujoco/twinarm.xml`). The model has the
   same servo torque limits and damping as the real arm.
 - **Preview mode:** a command is first played in MuJoCo. If there is no collision, no table contact
   (TCP z < 10 mm) and no torque above 80%, it is sent to the real arm.
 - **Load indicator:** the measured current is compared with the simulated torque in the same pose.
   The difference between the commanded angle and the pot angle is also shown.
 - **Heating indicator:** 50 °C yellow, 60 °C red. Heating is predicted with the first-order thermal
-  model in `checks/sim_dynamics.py` (`C·dT/dt = I²R − (T−T₀)/R_th`), for example
+  model in `simulation/dynamics.py` (`C·dT/dt = I²R − (T−T₀)/R_th`), for example
   "6 minutes with 150 g held horizontally". This could be an original contribution for the thesis.
 
 ## FreeCAD model and technical drawings
 
-- **`cad/freecad/TwinArm5.FCStd`**: FreeCAD 1.1 assembly.
+- **`freecad/TwinArm5.FCStd`**: FreeCAD 1.1 assembly.
   - The arm has 154 parts and the control box 97 parts; every screw, insert, bearing, sensor and the
     internal cable harness are included with names and colors.
   - The links are nested groups (`base_link > shoulder_link > … > gripper_link`).
@@ -304,7 +304,7 @@ the 6006) and the hollow shaft (Ø20).
     arm moves to that pose inside FreeCAD. The finger opening is calculated from the pinion angle.
   - There is a `Parts_List` spreadsheet, and each part carries material / print information
     (property panel, "TwinArm5" group).
-- **`cad/freecad/TwinArm5_Drawings.pdf`**: 25 A3 sheets, ISO 5457 title block, first-angle
+- **`freecad/TwinArm5_Drawings.pdf`**: 25 A3 sheets, ISO 5457 title block, first-angle
   projection.
   - TA5-A01: general assembly (three views + isometric, balloons).
   - TA5-A02: internal cable path section (A-A).
@@ -313,7 +313,7 @@ the 6006) and the hollow shaft (Ø20).
     counts, print orientation, material notes).
   - The sheets are also stored as TechDraw pages inside the FCStd; dimensions can be added and
     edited in FreeCAD.
-- The source of the parts is still the parametric model under `cad/src`. If the design changes:
+- The source of the parts is still the parametric model under `cad/`. If the design changes:
   `cad run freecad/export_parts.py`, then `freecad.exe freecad/build_freecad.py` and
   `python freecad/merge_pdfs.py`. The bodies in FreeCAD are imported solids (no feature tree);
   dimensions are changed in the source code.
@@ -321,12 +321,12 @@ the 6006) and the hollow shaft (Ø20).
 ## Digital twin app (web)
 
 ```bash
-pip install -r cad/twin/requirements.txt
-python cad/twin/server.py              # Sim mode; opens http://localhost:8080 in the browser
-python cad/twin/server.py --port COM5  # Live mode (ESP32)
+pip install -r app/requirements.txt
+python app/server.py              # Sim mode; opens http://localhost:8080 in the browser
+python app/server.py --port COM5  # Live mode (ESP32)
 ```
 
-On Windows it can also be started by double-clicking `cad/twin/start.bat`. From a phone on the same
+On Windows it can also be started by double-clicking `app/start.bat`. From a phone on the same
 Wi-Fi, open the `http://<computer's IP>:8080` address that the server prints on screen. If Windows
 Firewall asks for permission on the first run, tick "Private networks".
 
@@ -383,46 +383,55 @@ With the limiter on, the demo peaks are shoulder 68%, elbow 56% and wrist 57%, a
 - The twin compares the measured torque with the gravity torque the model expects in the same
   pose. If the difference is greater than 25%, it gives a jam or collision warning.
 
-## Files
+## Repository layout
 
 ```
-cad/src/lib/dims.py         main dimensions, servo selection, joint layout
-cad/src/parts.py            part geometries + assembly order
-cad/src/arm.py              assembly, joints, limits, servo centers, poses, demo
-cad/src/control_box.py      control box and electronics layout
-cad/src/print_parts.py      parts in print orientation
-cad/src/arm_mujoco.py       MuJoCo servo model → cad/sim/twinarm.xml
-cad/src/exports.py          URDF, GLB, STEP, STL
-cad/checks/sim_dynamics.py  holding, demo, grasp, thermal/electrical simulations
-cad/checks/ik_poses.py      inverse kinematics of the pick/place poses
-cad/checks/fea_parts.py, fea_run.py   strength analyses
-cad/checks/bom.py           bill of materials counted from CAD → BOM.md, BOM.csv
-cad/src/harness.py          internal cable harness paths
-cad/src/hardware.py         screw, insert, nut placement
-cad/src/system.py           arm + control box + cables + power supply
-cad/twin/server.py          digital twin web app (server: MuJoCo + ESP32 + WebSocket)
-cad/twin/core.py            servo / thermal model, serial port, session state
-cad/twin/web/               UI (HTML/CSS/JS, local copy of three.js)
-cad/freecad/                FreeCAD assembly (TwinArm5.FCStd), technical drawings (PDF), build scripts
-cad/description/            URDF + meshes (ROS 2 / RViz / web twin)
-cad/sim/                    MuJoCo model (with actuators) + scene.xml
-cad/sim_runs/               simulation and FEA results (json, png)
+cad/            parametric CAD model (build123d): parts, hardware, harness, assembly, exports
+  lib/dims.py         main dimensions, servo selection, joint layout
+  parts.py            part geometry + assembly order
+  hardware.py         screw, insert and nut placement
+  harness.py          internal cable harness paths (incl. sensor leads)
+  arm.py              arm assembly: joints, limits, servo centres, poses, demo
+  control_box.py      control box and electronics layout
+  system.py           arm + control box + cables + power supply
+  print_parts.py      printed parts in print orientation
+  exports.py          URDF, GLB, STEP, STL
+simulation/     models, simulations and their results
+  mujoco_model.py     MuJoCo servo model -> models/mujoco/twinarm.xml
+  dynamics.py         holding, demo, grasp, thermal/electrical simulations
+  ik_poses.py         inverse kinematics of the pick/place poses
+  torque.py           static joint torques
+  fea_parts.py, fea_run.py   strength analyses (CalculiX)
+  models/mujoco/      MuJoCo model with actuators + scene.xml
+  models/urdf/        URDF + meshes (ROS 2 / RViz)
+  results/            simulation and FEA results (json, png)
+app/            digital twin web app
+  server.py           server: MuJoCo + ESP32 link + WebSocket
+  core.py             servo / thermal model, torque limiter, serial port, session state
+  web/                UI (HTML/CSS/JS, local copy of three.js)
+  start.bat           double-click launcher (Windows)
+bom/            bill of materials: bom.py counts the CAD model -> BOM.md, BOM.csv
+freecad/        FreeCAD assembly (TwinArm5.FCStd), drawing set (TwinArm5_Drawings.pdf), build scripts
+docs/           brochure (TwinArm5_Brochure.pdf + HTML source), images, render script
+build/          generated exports and scratch files (not in git)
 ```
+
+All commands run from the repository root:
 
 ```bash
-cd cad
-cad run src/arm.py                                   # assembly (opens in the viewer)
-cad run src/arm_mujoco.py                            # MuJoCo model
-cad run src/exports.py                               # URDF/GLB/STEP/STL
-cad run --with matplotlib checks/sim_dynamics.py     # simulations
-cad run checks/fea_parts.py && python checks/fea_run.py   # FEA
-cad run checks/bom.py                                # bill of materials
-cad run mujoco-studio --model sim/scene.xml          # view in MuJoCo
+cad run cad/arm.py                                     # assembly (opens in the viewer)
+cad run cad/exports.py                                 # URDF -> simulation/models/urdf, GLB/STEP/STL -> build/
+cad run simulation/mujoco_model.py                     # MuJoCo model
+cad run --with matplotlib simulation/dynamics.py       # simulations
+python simulation/fea_run.py                           # FEA (builds simulation/fea_parts.py itself)
+cad run bom/bom.py                                     # bill of materials
+cad run mujoco-studio --model simulation/models/mujoco/scene.xml   # view in MuJoCo
+python app/server.py                                   # digital twin
 ```
 
 ## To verify when the servos arrive, and known limits
 
-1. **Servo dimensions** are assumptions; measure them with calipers and correct them in `lib/dims.py`:
+1. **Servo dimensions** are assumptions; measure them with calipers and correct them in `cad/lib/dims.py`:
    ear height 28 mm, hole pattern 49.5×10 mm, shaft position 10 mm, cable exit. The same applies to the MG90S.
 2. **25T arm horn:** hole spacing (20/24 mm) and thickness must be verified (`ARM_HORN_*`).
 3. **Pot voltage:** before opening the servos, measure it on one of them. If it exceeds 3.3 V, a divider is needed.

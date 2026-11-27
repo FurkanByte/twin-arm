@@ -1,0 +1,228 @@
+{
+ "ok": true,
+ "path": "9fa1a30b-f52c-5bd1-9127-713f4b5ebbed",
+ "findings": [],
+ "summary": "solved upper_arm/upper_arm of 9fa1a30b-f52c-5bd1-9127-713f4b5ebbed: peak 1.6504 MPa, safety factor 15.148",
+ "measurements": {
+  "max_von_mises_MPa": 1.6504,
+  "max_von_mises_gauss_MPa": 2.004,
+  "max_von_mises_at_mm": [
+   10.579,
+   -29.15,
+   250.759
+  ],
+  "yield_MPa": 25.0,
+  "max_displacement_mm": 0.027266,
+  "max_displacement_at_mm": [
+   18.525,
+   11.9,
+   262.39
+  ],
+  "applied_force_N": [
+   7.35,
+   0.0,
+   0.0
+  ],
+  "reaction_force_N": [
+   -7.35,
+   0.0,
+   -0.0
+  ],
+  "deformation_scale": 310.0,
+  "safety_factor": 15.148,
+  "checks": [
+   {
+    "kind": "stress",
+    "label": "Strength",
+    "value": 1.6504,
+    "limit": 25.0,
+    "unit": "MPa",
+    "ratio": 0.066015,
+    "close_at": 0.5,
+    "margin": 2.0,
+    "status": "passes",
+    "where": {
+     "ref": "upper_arm/f:arm_link.body_mocemj_fuse1~be395e78b48e",
+     "at": [
+      10.579,
+      -29.15,
+      250.759
+     ]
+    }
+   }
+  ],
+  "mesh": {
+   "elements": 22032,
+   "straightened": 6,
+   "nodes": 36755,
+   "dofs": 110265,
+   "size_mm": 4.2738,
+   "order": 2,
+   "mesher": "netgen",
+   "solver": "calculix 2.23 (C3D10)"
+  },
+  "timings": {
+   "mesh_s": 22.434,
+   "solve_s": 29.901,
+   "stress_s": 0.068
+  },
+  "study": {
+   "material": {
+    "name": "PETG FDM (interlayer)",
+    "E_MPa": 1800,
+    "nu": 0.38,
+    "yield_MPa": 25.0,
+    "density_t_per_mm3": 1.27e-09
+   },
+   "fixtures": [
+    {
+     "faces": [
+      "upper_arm/f:clevis.cheek_klpfgi~3b4e5ce2b924;M:clevis.body",
+      "upper_arm/f:arm_link.body_dfbkjg~73adb18bcf05",
+      "upper_arm/f:arm_link.body_mocemj_fuse1~be395e78b48e"
+     ],
+     "type": "fixed"
+    }
+   ],
+   "loads": [
+    {
+     "faces": [
+      "upper_arm/f:arm_link.body_kaanoi~eecd481e6e7d",
+      "upper_arm/f:arm_link.body_kaanoi~2619adc3670b"
+     ],
+     "type": "force",
+     "vector_N": [
+      34.88712121212121,
+      0,
+      0
+     ]
+    },
+    {
+     "faces": [
+      "upper_arm/f:servo_pocket.pocket_lngpgm4~280cf9d27695",
+      "upper_arm/f:servo_pocket.pocket_lngpgm3~7a5550c67b05"
+     ],
+     "type": "force",
+     "vector_N": [
+      -27.537121212121207,
+      0,
+      0
+     ]
+    }
+   ],
+   "margin": 2
+  },
+  "material": {
+   "name": "PETG FDM (interlayer)",
+   "E_MPa": 1800.0,
+   "nu": 0.38,
+   "yield_MPa": 25.0,
+   "density_t_per_mm3": 1.27e-09,
+   "source": "study"
+  },
+  "fixtures": [
+   {
+    "faces": [
+     "upper_arm/f:clevis.cheek_klpfgi~3b4e5ce2b924;M:clevis.body",
+     "upper_arm/f:arm_link.body_dfbkjg~73adb18bcf05",
+     "upper_arm/f:arm_link.body_mocemj_fuse1~be395e78b48e"
+    ],
+    "type": "fixed",
+    "reaction_N": [
+     -7.35,
+     0.0,
+     -0.0
+    ]
+   }
+  ],
+  "connections": [],
+  "overlaps": [],
+  "refined": null,
+  "named_faces": {
+   "upper_arm/f:clevis.cheek_klpfgi~3b4e5ce2b924;M:clevis.body": {
+    "ref": "upper_arm/f:clevis.cheek_klpfgi~3b4e5ce2b924;M:clevis.body",
+    "ordinal": 6,
+    "area": 310.183452132702,
+    "center": [
+     3.774758283725532e-15,
+     29.899999999999995,
+     145.68606543317713
+    ]
+   },
+   "upper_arm/f:arm_link.body_dfbkjg~73adb18bcf05": {
+    "ref": "upper_arm/f:arm_link.body_dfbkjg~73adb18bcf05",
+    "ordinal": 11,
+    "area": 321.6672587712819,
+    "center": [
+     -2.220446049250313e-16,
+     -29.9,
+     170.0
+    ]
+   },
+   "upper_arm/f:arm_link.body_mocemj_fuse1~be395e78b48e": {
+    "ref": "upper_arm/f:arm_link.body_mocemj_fuse1~be395e78b48e",
+    "ordinal": 23,
+    "area": 108.57344210806343,
+    "center": [
+     1.0658141036401503e-14,
+     -29.900000000000002,
+     245.99999999999997
+    ]
+   },
+   "upper_arm/f:arm_link.body_kaanoi~eecd481e6e7d": {
+    "ref": "upper_arm/f:arm_link.body_kaanoi~eecd481e6e7d",
+    "ordinal": 28,
+    "area": 87.96459430051418,
+    "center": [
+     -5.0,
+     8.399999999999999,
+     260.75
+    ]
+   },
+   "upper_arm/f:arm_link.body_kaanoi~2619adc3670b": {
+    "ref": "upper_arm/f:arm_link.body_kaanoi~2619adc3670b",
+    "ordinal": 30,
+    "area": 87.96459430051418,
+    "center": [
+     5.0,
+     8.399999999999999,
+     260.75
+    ]
+   },
+   "upper_arm/f:servo_pocket.pocket_lngpgm4~280cf9d27695": {
+    "ref": "upper_arm/f:servo_pocket.pocket_lngpgm4~280cf9d27695",
+    "ordinal": 42,
+    "area": 54.97787143782137,
+    "center": [
+     5.0,
+     8.399999999999999,
+     211.25
+    ]
+   },
+   "upper_arm/f:servo_pocket.pocket_lngpgm3~7a5550c67b05": {
+    "ref": "upper_arm/f:servo_pocket.pocket_lngpgm3~7a5550c67b05",
+    "ordinal": 44,
+    "area": 54.97787143782137,
+    "center": [
+     -5.0,
+     8.399999999999999,
+     211.25
+    ]
+   }
+  }
+ },
+ "status": "ok",
+ "reason": null,
+ "occurrence": "upper_arm/upper_arm",
+ "written": [
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\simulation\\results\\fea\\fea_upper_arm\\result.json",
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\simulation\\results\\fea\\fea_upper_arm\\result.glb",
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\simulation\\results\\fea\\fea_upper_arm\\result.vtu",
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\simulation\\results\\fea\\fea_upper_arm\\stress.png",
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\simulation\\results\\fea\\fea_upper_arm\\displacement.png"
+ ],
+ "contact_tolerance_mm": null,
+ "parts": [],
+ "pairs": [],
+ "faces": []
+}
