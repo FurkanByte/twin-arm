@@ -1,0 +1,51 @@
+{
+ "material": {
+  "name": "PETG FDM (interlayer)",
+  "E_MPa": 1800,
+  "nu": 0.38,
+  "yield_MPa": 25.0,
+  "density_t_per_mm3": 1.27e-09
+ },
+ "fixtures": [
+  {
+   "faces": [
+    "turntable/f:turntable.body_epgodo~c1bd740a546c",
+    "turntable/f:turntable.hub.1;M:turntable.body"
+   ],
+   "type": "fixed"
+  },
+  {
+   "faces": [
+    "turntable/f:turntable.body_epgodo~1d20de88974e"
+   ],
+   "type": "roller"
+  }
+ ],
+ "loads": [
+  {
+   "faces": [
+    "turntable/f:turntable.body_lbbgal4~74e96dfa5b65",
+    "turntable/f:turntable.body_lbbgal2~d2dc2606f0c8"
+   ],
+   "type": "force",
+   "vector_N": [
+    0,
+    0,
+    -67.5
+   ]
+  },
+  {
+   "faces": [
+    "turntable/f:turntable.body_lbbgal3~c3ed99e32dff",
+    "turntable/f:turntable.body_lbbgal~a751c1ef9c0d"
+   ],
+   "type": "force",
+   "vector_N": [
+    0,
+    0,
+    52.5
+   ]
+  }
+ ],
+ "margin": 2
+}

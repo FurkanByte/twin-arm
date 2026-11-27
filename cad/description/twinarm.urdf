@@ -1,0 +1,2198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="twinarm">
+  <material name="PETG_GENERIC">
+    <color rgba="0.168628869 0.184313587 0.211763349 1"/>
+  </material>
+  <material name="AlloySteel_G4140_QUENCHED_TEMPERED">
+    <color rgba="0.603921391 0.627451304 0.650980383 1"/>
+  </material>
+  <material name="Nylon_PA12">
+    <color rgba="0.0784281125 0.0784281125 0.0784281125 1"/>
+  </material>
+  <material name="ABS_GENERIC">
+    <color rgba="0.949019552 0.788235043 0.29803952 1"/>
+  </material>
+  <material name="Brass_C360_HALF_HARD">
+    <color rgba="0.784313459 0.635294293 0.290195722 1"/>
+  </material>
+  <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a">
+    <color rgba="0.164704435 0.164704435 0.164704435 1"/>
+  </material>
+  <material name="PE_HDPE">
+    <color rgba="0.168628869 0.290195722 0.549019937 1"/>
+  </material>
+  <material name="Nylon_PA12_f2f2f2">
+    <color rgba="0.949019552 0.949019552 0.949019552 1"/>
+  </material>
+  <material name="AlloySteel_G4140_QUENCHED_TEMPERED_3c3f44">
+    <color rgba="0.235293571 0.247059922 0.266665669 1"/>
+  </material>
+  <material name="PETG_GENERIC_e6e6e2">
+    <color rgba="0.901960814 0.901960814 0.886274765 1"/>
+  </material>
+  <material name="Alu_G6061_T6">
+    <color rgba="0.721568504 0.737254601 0.760784006 1"/>
+  </material>
+  <material name="PETG_GENERIC_ff6a13">
+    <color rgba="1 0.415685634 0.0745090516 1"/>
+  </material>
+  <material name="Rubber_GENERIC">
+    <color rgba="0.227449838 0.227449838 0.227449838 1"/>
+  </material>
+
+  <link name="base_footprint"/>
+
+  <joint name="base_footprint_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+  </joint>
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.000548352531 -0.000167581647 0.0434924857" rpy="0 0 0"/>
+      <mass value="0.564781197"/>
+      <inertia ixx="0.000798650235" ixy="-1.02858621e-06" ixz="3.47361996e-06" iyy="0.000837758457" iyz="-6.88398884e-07" izz="0.00075794915"/>
+    </inertial>
+    <visual name="base_plate">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_base_plate.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC"/>
+    </visual>
+    <visual name="base_housing">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_base_housing.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC"/>
+    </visual>
+    <visual name="bearing_51107">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_bearing_51107.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED"/>
+    </visual>
+    <visual name="bearing_6006zz">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_bearing_6006zz.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED"/>
+    </visual>
+    <visual name="body">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_body.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Nylon_PA12"/>
+    </visual>
+    <visual name="ds18b20_1">
+      <origin xyz="0.01 0.0118 0.0223" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_ds18b20_1.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="ABS_GENERIC"/>
+    </visual>
+    <visual name="insert_M3x5_75">
+      <origin xyz="-0.01475 -0.005 0.028125" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x8_DIN912">
+      <origin xyz="-0.01475 -0.005 0.0335" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M3x8_PAN">
+      <origin xyz="0.03475 -0.005 0.0335" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_2">
+      <origin xyz="-0.01475 0.005 0.028125" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x8_DIN912_2">
+      <origin xyz="-0.01475 0.005 0.0335" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M3x8_PAN_2">
+      <origin xyz="0.03475 0.005 0.0335" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_3">
+      <origin xyz="0.0282842712 0.0282842712 0.011875" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x10_DIN912">
+      <origin xyz="0.0282842712 0.0282842712 0.0033" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="screw_M5x16_masa">
+      <origin xyz="0.0466690476 0.0466690476 0.0055" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M5x16_masa.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_4">
+      <origin xyz="-0.0282842712 0.0282842712 0.011875" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x10_DIN912_2">
+      <origin xyz="-0.0282842712 0.0282842712 0.0033" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="screw_M5x16_masa_2">
+      <origin xyz="-0.0466690476 0.0466690476 0.0055" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M5x16_masa.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_5">
+      <origin xyz="-0.0282842712 -0.0282842712 0.011875" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x10_DIN912_3">
+      <origin xyz="-0.0282842712 -0.0282842712 0.0033" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="screw_M5x16_masa_3">
+      <origin xyz="-0.0466690476 -0.0466690476 0.0055" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M5x16_masa.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_6">
+      <origin xyz="0.0282842712 -0.0282842712 0.011875" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x10_DIN912_4">
+      <origin xyz="0.0282842712 -0.0282842712 0.0033" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="screw_M5x16_masa_4">
+      <origin xyz="0.0466690476 -0.0466690476 0.0055" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M5x16_masa.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="harness_base">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_harness_base.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PE_HDPE"/>
+    </visual>
+    <collision name="base_plate">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_base_plate.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="base_housing">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_base_housing.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="bearing_51107">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_bearing_51107.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="bearing_6006zz">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_bearing_6006zz.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="body">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_body.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="ds18b20_1">
+      <origin xyz="0.01 0.0118 0.0223" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_ds18b20_1.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75">
+      <origin xyz="-0.01475 -0.005 0.028125" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x8_DIN912">
+      <origin xyz="-0.01475 -0.005 0.0335" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M3x8_PAN">
+      <origin xyz="0.03475 -0.005 0.0335" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_2">
+      <origin xyz="-0.01475 0.005 0.028125" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x8_DIN912_2">
+      <origin xyz="-0.01475 0.005 0.0335" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M3x8_PAN_2">
+      <origin xyz="0.03475 0.005 0.0335" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_3">
+      <origin xyz="0.0282842712 0.0282842712 0.011875" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x10_DIN912">
+      <origin xyz="0.0282842712 0.0282842712 0.0033" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M5x16_masa">
+      <origin xyz="0.0466690476 0.0466690476 0.0055" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M5x16_masa.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_4">
+      <origin xyz="-0.0282842712 0.0282842712 0.011875" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x10_DIN912_2">
+      <origin xyz="-0.0282842712 0.0282842712 0.0033" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M5x16_masa_2">
+      <origin xyz="-0.0466690476 0.0466690476 0.0055" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M5x16_masa.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_5">
+      <origin xyz="-0.0282842712 -0.0282842712 0.011875" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x10_DIN912_3">
+      <origin xyz="-0.0282842712 -0.0282842712 0.0033" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M5x16_masa_3">
+      <origin xyz="-0.0466690476 -0.0466690476 0.0055" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M5x16_masa.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_6">
+      <origin xyz="0.0282842712 -0.0282842712 0.011875" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x10_DIN912_4">
+      <origin xyz="0.0282842712 -0.0282842712 0.0033" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M5x16_masa_4">
+      <origin xyz="0.0466690476 -0.0466690476 0.0055" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M5x16_masa.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="harness_base">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_harness_base.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="base_yaw" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="shoulder_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57079633" upper="1.57079633" effort="1.96" velocity="6.5"/>
+  </joint>
+
+  <link name="shoulder_link">
+    <inertial>
+      <origin xyz="-1.00370144e-05 -0.00122513583 0.107342757" rpy="0 0 0"/>
+      <mass value="0.201304885"/>
+      <inertia ixx="0.000197247527" ixy="-2.31610921e-08" ixz="1.6549109e-07" iyy="0.000186992604" iyz="2.25920782e-06" izz="0.000111881305"/>
+    </inertial>
+    <visual name="turntable">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_turntable.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC"/>
+    </visual>
+    <visual name="horn">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_horn.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Nylon_PA12_f2f2f2"/>
+    </visual>
+    <visual name="setscrew_M3x10">
+      <origin xyz="0.00530330086 0.00530330086 0.05075" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_setscrew_M3x10.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_3c3f44"/>
+    </visual>
+    <visual name="setscrew_M3x10_2">
+      <origin xyz="-0.00530330086 -0.00530330086 0.05075" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_setscrew_M3x10.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_3c3f44"/>
+    </visual>
+    <visual name="hub_collar">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_hub_collar.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC"/>
+    </visual>
+    <visual name="shoulder_tower">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_shoulder_tower.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC"/>
+    </visual>
+    <visual name="body">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_body_2.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Nylon_PA12"/>
+    </visual>
+    <visual name="ds18b20_2">
+      <origin xyz="0.0118 -0.0038 0.118" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_ds18b20_2.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="ABS_GENERIC"/>
+    </visual>
+    <visual name="stub_retainer">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_stub_retainer.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC"/>
+    </visual>
+    <visual name="setscrew_M3x4">
+      <origin xyz="0.017 0 0.05265" rpy="0 1.57079633 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_setscrew_M3x4.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="horn_screw_M3x8">
+      <origin xyz="0 0 0.049" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75">
+      <origin xyz="0.00530330086 0.00530330086 0.052875" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="insert_M3x5_75_2">
+      <origin xyz="-0.00530330086 -0.00530330086 0.052875" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="insert_M3x5_75_3">
+      <origin xyz="-0.025 -0.019 0.091125" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x10_DIN912">
+      <origin xyz="-0.025 -0.019 0.0985" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_4">
+      <origin xyz="0.025 -0.019 0.091125" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x10_DIN912_2">
+      <origin xyz="0.025 -0.019 0.0985" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_5">
+      <origin xyz="-0.025 0.003 0.091125" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x10_DIN912_3">
+      <origin xyz="-0.025 0.003 0.0985" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_6">
+      <origin xyz="0.025 0.003 0.091125" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x10_DIN912_4">
+      <origin xyz="0.025 0.003 0.0985" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_7">
+      <origin xyz="-0.005 0.009025 0.15075" rpy="-1.57079633 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x8_DIN912">
+      <origin xyz="-0.005 0.0144 0.15075" rpy="-1.57079633 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M3x8_PAN">
+      <origin xyz="-0.005 0.0144 0.10125" rpy="-1.57079633 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_8">
+      <origin xyz="0.005 0.009025 0.15075" rpy="-1.57079633 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x8_DIN912_2">
+      <origin xyz="0.005 0.0144 0.15075" rpy="-1.57079633 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M3x8_PAN_2">
+      <origin xyz="0.005 0.0144 0.10125" rpy="-1.57079633 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M2x6_PAN">
+      <origin xyz="-0.00825 -0.0385 0.136" rpy="1.57079633 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x6_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M2x6_PAN_2">
+      <origin xyz="0.00825 -0.0385 0.136" rpy="1.57079633 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x6_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="harness_shoulder">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_harness_shoulder.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PE_HDPE"/>
+    </visual>
+    <collision name="turntable">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_turntable.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="horn">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_horn.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="setscrew_M3x10">
+      <origin xyz="0.00530330086 0.00530330086 0.05075" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_setscrew_M3x10.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="setscrew_M3x10_2">
+      <origin xyz="-0.00530330086 -0.00530330086 0.05075" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_setscrew_M3x10.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="hub_collar">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_hub_collar.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="shoulder_tower">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_shoulder_tower.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="body">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_body_2.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="ds18b20_2">
+      <origin xyz="0.0118 -0.0038 0.118" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_ds18b20_2.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="stub_retainer">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_stub_retainer.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="setscrew_M3x4">
+      <origin xyz="0.017 0 0.05265" rpy="0 1.57079633 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_setscrew_M3x4.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="horn_screw_M3x8">
+      <origin xyz="0 0 0.049" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75">
+      <origin xyz="0.00530330086 0.00530330086 0.052875" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_2">
+      <origin xyz="-0.00530330086 -0.00530330086 0.052875" rpy="3.14159265 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_3">
+      <origin xyz="-0.025 -0.019 0.091125" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x10_DIN912">
+      <origin xyz="-0.025 -0.019 0.0985" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_4">
+      <origin xyz="0.025 -0.019 0.091125" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x10_DIN912_2">
+      <origin xyz="0.025 -0.019 0.0985" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_5">
+      <origin xyz="-0.025 0.003 0.091125" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x10_DIN912_3">
+      <origin xyz="-0.025 0.003 0.0985" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_6">
+      <origin xyz="0.025 0.003 0.091125" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x10_DIN912_4">
+      <origin xyz="0.025 0.003 0.0985" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_7">
+      <origin xyz="-0.005 0.009025 0.15075" rpy="-1.57079633 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x8_DIN912">
+      <origin xyz="-0.005 0.0144 0.15075" rpy="-1.57079633 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M3x8_PAN">
+      <origin xyz="-0.005 0.0144 0.10125" rpy="-1.57079633 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_8">
+      <origin xyz="0.005 0.009025 0.15075" rpy="-1.57079633 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x8_DIN912_2">
+      <origin xyz="0.005 0.0144 0.15075" rpy="-1.57079633 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M3x8_PAN_2">
+      <origin xyz="0.005 0.0144 0.10125" rpy="-1.57079633 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M2x6_PAN">
+      <origin xyz="-0.00825 -0.0385 0.136" rpy="1.57079633 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x6_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M2x6_PAN_2">
+      <origin xyz="0.00825 -0.0385 0.136" rpy="1.57079633 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x6_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="harness_shoulder">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_harness_shoulder.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="shoulder" type="revolute">
+    <origin xyz="0 0 0.136" rpy="0 -1.57079633 -1.57079633"/>
+    <parent link="shoulder_link"/>
+    <child link="upper_arm_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.22173048" upper="1.83259571" effort="3.14" velocity="6.5"/>
+  </joint>
+
+  <link name="upper_arm_link">
+    <inertial>
+      <origin xyz="0.0627515278 -2.86980543e-05 -0.00575488148" rpy="0 0 0"/>
+      <mass value="0.237226758"/>
+      <inertia ixx="0.000139077892" ixy="1.15662733e-07" ixz="-6.36254271e-05" iyy="0.000528706495" iyz="1.25466865e-07" izz="0.000435582169"/>
+    </inertial>
+    <visual name="upper_arm">
+      <origin xyz="-0.136 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_upper_arm.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC_e6e6e2"/>
+    </visual>
+    <visual name="horn">
+      <origin xyz="-0.136 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_horn_2.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Alu_G6061_T6"/>
+    </visual>
+    <visual name="idler_plate_shoulder">
+      <origin xyz="-0.136 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_idler_plate_shoulder.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC_e6e6e2"/>
+    </visual>
+    <visual name="bearing_6804">
+      <origin xyz="-0.136 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_bearing_6804.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED"/>
+    </visual>
+    <visual name="body">
+      <origin xyz="-0.136 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_body_3.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Nylon_PA12"/>
+    </visual>
+    <visual name="ds18b20_3">
+      <origin xyz="0.092 0.0118 -0.0038" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_ds18b20_3.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="ABS_GENERIC"/>
+    </visual>
+    <visual name="stub_retainer">
+      <origin xyz="-0.136 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_stub_retainer_2.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC"/>
+    </visual>
+    <visual name="screw_M3x10_DIN912">
+      <origin xyz="0.024 0 0.0357" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="horn_screw_M3x8">
+      <origin xyz="0 0 0.0299" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75">
+      <origin xyz="0.034 -0.014 -0.027025" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x20_DIN912">
+      <origin xyz="0.034 -0.014 -0.0472" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x20_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_2">
+      <origin xyz="0.034 0.014 -0.027025" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x20_DIN912_2">
+      <origin xyz="0.034 0.014 -0.0472" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x20_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_3">
+      <origin xyz="0.12475 -0.005 0.009025" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x8_DIN912">
+      <origin xyz="0.12475 -0.005 0.0144" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M3x8_PAN">
+      <origin xyz="0.07525 -0.005 0.0144" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_4">
+      <origin xyz="0.12475 0.005 0.009025" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x8_DIN912_2">
+      <origin xyz="0.12475 0.005 0.0144" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M3x8_PAN_2">
+      <origin xyz="0.07525 0.005 0.0144" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M2x6_PAN">
+      <origin xyz="0.11 -0.00825 -0.0385" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x6_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M2x6_PAN_2">
+      <origin xyz="0.11 0.00825 -0.0385" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x6_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="harness_upper_arm">
+      <origin xyz="-0.136 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_harness_upper_arm.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PE_HDPE"/>
+    </visual>
+    <collision name="upper_arm">
+      <origin xyz="-0.136 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_upper_arm.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="horn">
+      <origin xyz="-0.136 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_horn_2.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="idler_plate_shoulder">
+      <origin xyz="-0.136 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_idler_plate_shoulder.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="bearing_6804">
+      <origin xyz="-0.136 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_bearing_6804.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="body">
+      <origin xyz="-0.136 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_body_3.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="ds18b20_3">
+      <origin xyz="0.092 0.0118 -0.0038" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_ds18b20_3.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="stub_retainer">
+      <origin xyz="-0.136 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_stub_retainer_2.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x10_DIN912">
+      <origin xyz="0.024 0 0.0357" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="horn_screw_M3x8">
+      <origin xyz="0 0 0.0299" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75">
+      <origin xyz="0.034 -0.014 -0.027025" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x20_DIN912">
+      <origin xyz="0.034 -0.014 -0.0472" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x20_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_2">
+      <origin xyz="0.034 0.014 -0.027025" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x20_DIN912_2">
+      <origin xyz="0.034 0.014 -0.0472" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x20_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_3">
+      <origin xyz="0.12475 -0.005 0.009025" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x8_DIN912">
+      <origin xyz="0.12475 -0.005 0.0144" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M3x8_PAN">
+      <origin xyz="0.07525 -0.005 0.0144" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_4">
+      <origin xyz="0.12475 0.005 0.009025" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x8_DIN912_2">
+      <origin xyz="0.12475 0.005 0.0144" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M3x8_PAN_2">
+      <origin xyz="0.07525 0.005 0.0144" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M2x6_PAN">
+      <origin xyz="0.11 -0.00825 -0.0385" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x6_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M2x6_PAN_2">
+      <origin xyz="0.11 0.00825 -0.0385" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x6_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="harness_upper_arm">
+      <origin xyz="-0.136 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_harness_upper_arm.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="elbow" type="revolute">
+    <origin xyz="0.11 0 0" rpy="0 0 0"/>
+    <parent link="upper_arm_link"/>
+    <child link="forearm_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.04719755" upper="1.83259571" effort="2.7" velocity="6.5"/>
+  </joint>
+
+  <link name="forearm_link">
+    <inertial>
+      <origin xyz="0.061656595 -2.97410569e-05 -0.00592092595" rpy="0 0 0"/>
+      <mass value="0.228907338"/>
+      <inertia ixx="0.000136240639" ixy="1.23116972e-07" ixz="-6.04141934e-05" iyy="0.000513454612" iyz="1.26597289e-07" izz="0.000422684492"/>
+    </inertial>
+    <visual name="forearm">
+      <origin xyz="-0.246 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_forearm.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC_e6e6e2"/>
+    </visual>
+    <visual name="horn">
+      <origin xyz="-0.246 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_horn_3.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Alu_G6061_T6"/>
+    </visual>
+    <visual name="idler_plate_elbow">
+      <origin xyz="-0.246 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_idler_plate_elbow.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC_e6e6e2"/>
+    </visual>
+    <visual name="bearing_6804">
+      <origin xyz="-0.246 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_bearing_6804_2.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED"/>
+    </visual>
+    <visual name="body">
+      <origin xyz="-0.246 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_body_4.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Nylon_PA12"/>
+    </visual>
+    <visual name="ds18b20_4">
+      <origin xyz="0.092 0.0118 -0.0038" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_ds18b20_3.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="ABS_GENERIC"/>
+    </visual>
+    <visual name="stub_retainer">
+      <origin xyz="-0.246 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_stub_retainer_3.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC"/>
+    </visual>
+    <visual name="screw_M3x10_DIN912">
+      <origin xyz="0.024 0 0.0357" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="horn_screw_M3x8">
+      <origin xyz="0 0 0.0299" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75">
+      <origin xyz="0.034 -0.014 -0.027025" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x20_DIN912">
+      <origin xyz="0.034 -0.014 -0.0472" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x20_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_2">
+      <origin xyz="0.034 0.014 -0.027025" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x20_DIN912_2">
+      <origin xyz="0.034 0.014 -0.0472" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x20_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_3">
+      <origin xyz="0.12475 -0.005 0.009025" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x8_DIN912">
+      <origin xyz="0.12475 -0.005 0.0144" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M3x8_PAN">
+      <origin xyz="0.07525 -0.005 0.0144" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_4">
+      <origin xyz="0.12475 0.005 0.009025" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x8_DIN912_2">
+      <origin xyz="0.12475 0.005 0.0144" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M3x8_PAN_2">
+      <origin xyz="0.07525 0.005 0.0144" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M2x6_PAN">
+      <origin xyz="0.11 -0.00825 -0.0385" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x6_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M2x6_PAN_2">
+      <origin xyz="0.11 0.00825 -0.0385" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x6_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="harness_forearm">
+      <origin xyz="-0.246 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_harness_forearm.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PE_HDPE"/>
+    </visual>
+    <collision name="forearm">
+      <origin xyz="-0.246 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_forearm.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="horn">
+      <origin xyz="-0.246 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_horn_3.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="idler_plate_elbow">
+      <origin xyz="-0.246 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_idler_plate_elbow.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="bearing_6804">
+      <origin xyz="-0.246 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_bearing_6804_2.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="body">
+      <origin xyz="-0.246 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_body_4.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="ds18b20_4">
+      <origin xyz="0.092 0.0118 -0.0038" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_ds18b20_3.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="stub_retainer">
+      <origin xyz="-0.246 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_stub_retainer_3.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x10_DIN912">
+      <origin xyz="0.024 0 0.0357" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="horn_screw_M3x8">
+      <origin xyz="0 0 0.0299" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75">
+      <origin xyz="0.034 -0.014 -0.027025" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x20_DIN912">
+      <origin xyz="0.034 -0.014 -0.0472" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x20_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_2">
+      <origin xyz="0.034 0.014 -0.027025" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x20_DIN912_2">
+      <origin xyz="0.034 0.014 -0.0472" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x20_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_3">
+      <origin xyz="0.12475 -0.005 0.009025" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x8_DIN912">
+      <origin xyz="0.12475 -0.005 0.0144" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M3x8_PAN">
+      <origin xyz="0.07525 -0.005 0.0144" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_4">
+      <origin xyz="0.12475 0.005 0.009025" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x8_DIN912_2">
+      <origin xyz="0.12475 0.005 0.0144" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M3x8_PAN_2">
+      <origin xyz="0.07525 0.005 0.0144" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M2x6_PAN">
+      <origin xyz="0.11 -0.00825 -0.0385" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x6_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M2x6_PAN_2">
+      <origin xyz="0.11 0.00825 -0.0385" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x6_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="harness_forearm">
+      <origin xyz="-0.246 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_harness_forearm.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wrist_pitch" type="revolute">
+    <origin xyz="0.11 0 0" rpy="0 0 0"/>
+    <parent link="forearm_link"/>
+    <child link="wrist_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.04719755" upper="1.65806279" effort="1.96" velocity="6.5"/>
+  </joint>
+
+  <link name="wrist_link">
+    <inertial>
+      <origin xyz="0.0385104378 0.00630101569 -0.00806803075" rpy="0 0 0"/>
+      <mass value="0.186830553"/>
+      <inertia ixx="0.000131333034" ixy="-1.90069492e-05" ixz="-3.2826097e-05" iyy="0.000216218355" iyz="-5.63669436e-06" izz="0.000167606371"/>
+    </inertial>
+    <visual name="wrist">
+      <origin xyz="-0.356 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_wrist.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC_ff6a13"/>
+    </visual>
+    <visual name="horn">
+      <origin xyz="-0.356 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_horn_4.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Alu_G6061_T6"/>
+    </visual>
+    <visual name="idler_plate_wrist">
+      <origin xyz="-0.356 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_idler_plate_wrist.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC_ff6a13"/>
+    </visual>
+    <visual name="bearing_6804">
+      <origin xyz="-0.356 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_bearing_6804_3.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED"/>
+    </visual>
+    <visual name="body">
+      <origin xyz="-0.356 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_body_5.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Nylon_PA12"/>
+    </visual>
+    <visual name="ds18b20_5">
+      <origin xyz="0.0543 0.01 0.0118" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_ds18b20_5.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="ABS_GENERIC"/>
+    </visual>
+    <visual name="screw_M3x10_DIN912">
+      <origin xyz="0.024 0 0.0357" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="horn_screw_M3x8">
+      <origin xyz="0 0 0.0299" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75">
+      <origin xyz="0.034 -0.014 -0.027025" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x20_DIN912">
+      <origin xyz="0.034 -0.014 -0.0472" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x20_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_2">
+      <origin xyz="0.034 0.014 -0.027025" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x20_DIN912_2">
+      <origin xyz="0.034 0.014 -0.0472" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x20_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_3">
+      <origin xyz="0.065125 -0.01475 -0.005" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x8_DIN912">
+      <origin xyz="0.0705 -0.01475 -0.005" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M3x8_PAN">
+      <origin xyz="0.0705 0.03475 -0.005" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_4">
+      <origin xyz="0.065125 -0.01475 0.005" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x8_DIN912_2">
+      <origin xyz="0.0705 -0.01475 0.005" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M3x8_PAN_2">
+      <origin xyz="0.0705 0.03475 0.005" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="harness_wrist">
+      <origin xyz="-0.356 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_harness_wrist.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PE_HDPE"/>
+    </visual>
+    <collision name="wrist">
+      <origin xyz="-0.356 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_wrist.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="horn">
+      <origin xyz="-0.356 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_horn_4.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="idler_plate_wrist">
+      <origin xyz="-0.356 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_idler_plate_wrist.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="bearing_6804">
+      <origin xyz="-0.356 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_bearing_6804_3.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="body">
+      <origin xyz="-0.356 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_body_5.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="ds18b20_5">
+      <origin xyz="0.0543 0.01 0.0118" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_ds18b20_5.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x10_DIN912">
+      <origin xyz="0.024 0 0.0357" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="horn_screw_M3x8">
+      <origin xyz="0 0 0.0299" rpy="0 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75">
+      <origin xyz="0.034 -0.014 -0.027025" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x20_DIN912">
+      <origin xyz="0.034 -0.014 -0.0472" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x20_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_2">
+      <origin xyz="0.034 0.014 -0.027025" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x20_DIN912_2">
+      <origin xyz="0.034 0.014 -0.0472" rpy="3.14159265 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x20_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_3">
+      <origin xyz="0.065125 -0.01475 -0.005" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x8_DIN912">
+      <origin xyz="0.0705 -0.01475 -0.005" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M3x8_PAN">
+      <origin xyz="0.0705 0.03475 -0.005" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_4">
+      <origin xyz="0.065125 -0.01475 0.005" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x8_DIN912_2">
+      <origin xyz="0.0705 -0.01475 0.005" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M3x8_PAN_2">
+      <origin xyz="0.0705 0.03475 0.005" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M3x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="harness_wrist">
+      <origin xyz="-0.356 0 0" rpy="1.57079633 0 1.57079633"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_harness_wrist.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="wrist_roll" type="revolute">
+    <origin xyz="0.086 0 0" rpy="1.57079633 0 1.57079633"/>
+    <parent link="wrist_link"/>
+    <child link="gripper_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57079633" upper="1.57079633" effort="1.96" velocity="6.5"/>
+  </joint>
+
+  <link name="gripper_link">
+    <inertial>
+      <origin xyz="0.00188864882 -3.6049238e-05 0.019454182" rpy="0 0 0"/>
+      <mass value="0.0773760995"/>
+      <inertia ixx="4.42473633e-05" ixy="4.77888057e-07" ixz="3.40626122e-07" iyy="6.89389459e-05" iyz="2.78460415e-09" izz="6.72595228e-05"/>
+    </inertial>
+    <visual name="gripper_palm">
+      <origin xyz="0 0 -0.442" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_gripper_palm.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC_ff6a13"/>
+    </visual>
+    <visual name="horn">
+      <origin xyz="0 0 -0.442" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_horn_5.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Nylon_PA12_f2f2f2"/>
+    </visual>
+    <visual name="gripper_cover">
+      <origin xyz="0 0 -0.442" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_gripper_cover.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC"/>
+    </visual>
+    <visual name="body">
+      <origin xyz="0 0 -0.442" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_body_6.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Nylon_PA12"/>
+    </visual>
+    <visual name="ds18b20_6">
+      <origin xyz="0.0055 0.0079 0.0168" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_ds18b20_6.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="ABS_GENERIC"/>
+    </visual>
+    <visual name="horn_screw_M3x8">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M2_5x8_PAN">
+      <origin xyz="0.00530330086 0.00530330086 0.0043" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2.5x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M2_5x8_PAN_2">
+      <origin xyz="-0.00530330086 0.00530330086 0.0043" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2.5x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M2_5x8_PAN_3">
+      <origin xyz="-0.00530330086 -0.00530330086 0.0043" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2.5x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M2_5x8_PAN_4">
+      <origin xyz="0.00530330086 -0.00530330086 0.0043" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2.5x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M2x8_PAN">
+      <origin xyz="-0.0084 0 0.0249" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M2x8_PAN_2">
+      <origin xyz="0.0194 0 0.0249" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75">
+      <origin xyz="-0.044 -0.015 0.038625" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x8_ISO7380">
+      <origin xyz="-0.044 -0.015 0.0437" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_ISO7380.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_2">
+      <origin xyz="0.044 -0.015 0.038625" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x8_ISO7380_2">
+      <origin xyz="0.044 -0.015 0.0437" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_ISO7380.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_3">
+      <origin xyz="-0.044 0.015 0.038625" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x8_ISO7380_3">
+      <origin xyz="-0.044 0.015 0.0437" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_ISO7380.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="insert_M3x5_75_4">
+      <origin xyz="0.044 0.015 0.038625" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Brass_C360_HALF_HARD"/>
+    </visual>
+    <visual name="screw_M3x8_ISO7380_4">
+      <origin xyz="0.044 0.015 0.0437" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_ISO7380.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="harness_gripper">
+      <origin xyz="0 0 -0.442" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_harness_gripper.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PE_HDPE"/>
+    </visual>
+    <collision name="gripper_palm">
+      <origin xyz="0 0 -0.442" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_gripper_palm.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="horn">
+      <origin xyz="0 0 -0.442" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_horn_5.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="gripper_cover">
+      <origin xyz="0 0 -0.442" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_gripper_cover.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="body">
+      <origin xyz="0 0 -0.442" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_body_6.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="ds18b20_6">
+      <origin xyz="0.0055 0.0079 0.0168" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_ds18b20_6.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="horn_screw_M3x8">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M2_5x8_PAN">
+      <origin xyz="0.00530330086 0.00530330086 0.0043" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2.5x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M2_5x8_PAN_2">
+      <origin xyz="-0.00530330086 0.00530330086 0.0043" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2.5x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M2_5x8_PAN_3">
+      <origin xyz="-0.00530330086 -0.00530330086 0.0043" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2.5x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M2_5x8_PAN_4">
+      <origin xyz="0.00530330086 -0.00530330086 0.0043" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2.5x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M2x8_PAN">
+      <origin xyz="-0.0084 0 0.0249" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M2x8_PAN_2">
+      <origin xyz="0.0194 0 0.0249" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x8_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75">
+      <origin xyz="-0.044 -0.015 0.038625" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x8_ISO7380">
+      <origin xyz="-0.044 -0.015 0.0437" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_ISO7380.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_2">
+      <origin xyz="0.044 -0.015 0.038625" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x8_ISO7380_2">
+      <origin xyz="0.044 -0.015 0.0437" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_ISO7380.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_3">
+      <origin xyz="-0.044 0.015 0.038625" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x8_ISO7380_3">
+      <origin xyz="-0.044 0.015 0.0437" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_ISO7380.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="insert_M3x5_75_4">
+      <origin xyz="0.044 0.015 0.038625" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_insert_M3x5.75.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x8_ISO7380_4">
+      <origin xyz="0.044 0.015 0.0437" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x8_ISO7380.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="harness_gripper">
+      <origin xyz="0 0 -0.442" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_harness_gripper.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="tcp_joint" type="fixed">
+    <origin xyz="0 0 0.0888" rpy="0 0 0"/>
+    <parent link="gripper_link"/>
+    <child link="tcp"/>
+  </joint>
+
+  <link name="tcp"/>
+
+  <joint name="gripper_pinion" type="revolute">
+    <origin xyz="0 0 0.0332" rpy="3.14159265 0 3.01592895"/>
+    <parent link="gripper_link"/>
+    <child link="pinion_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.125663706" upper="1.70766963" effort="0.216" velocity="10"/>
+  </joint>
+
+  <link name="pinion_link">
+    <inertial>
+      <origin xyz="0 0 -0.00280161125" rpy="0 0 0"/>
+      <mass value="0.00362885926"/>
+      <inertia ixx="1.4480793e-07" ixy="0" ixz="0" iyy="1.56989487e-07" iyz="0" izz="2.21309077e-07"/>
+    </inertial>
+    <visual name="horn">
+      <origin xyz="0 0 0.4752" rpy="3.14159265 0 3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_horn_6.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Nylon_PA12_f2f2f2"/>
+    </visual>
+    <visual name="pinion_m15z16">
+      <origin xyz="0 0 0.4752" rpy="3.14159265 0 3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_pinion_m15z16.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC_e6e6e2"/>
+    </visual>
+    <visual name="horn_screw_M2x4">
+      <origin xyz="0 0 0" rpy="3.14159265 0 3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_horn_screw_M2x4.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M2x10_PAN">
+      <origin xyz="-0.005 0 -0.008" rpy="3.14159265 0 3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x10_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="selftap_M2x10_PAN_2">
+      <origin xyz="0.005 0 -0.008" rpy="3.14159265 0 3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x10_PAN.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <collision name="horn">
+      <origin xyz="0 0 0.4752" rpy="3.14159265 0 3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_horn_6.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="pinion_m15z16">
+      <origin xyz="0 0 0.4752" rpy="3.14159265 0 3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_pinion_m15z16.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="horn_screw_M2x4">
+      <origin xyz="0 0 0" rpy="3.14159265 0 3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_horn_screw_M2x4.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M2x10_PAN">
+      <origin xyz="-0.005 0 -0.008" rpy="3.14159265 0 3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x10_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="selftap_M2x10_PAN_2">
+      <origin xyz="0.005 0 -0.008" rpy="3.14159265 0 3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_selftap_M2x10_PAN.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="finger_left" type="prismatic">
+    <origin xyz="-0.00150796447 0 0.0455" rpy="0 1.57079633 -3.14159265"/>
+    <parent link="gripper_link"/>
+    <child link="finger_left_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.00150796447" upper="0.0204920355" effort="10" velocity="0.12"/>
+    <mimic joint="gripper_pinion" multiplier="0.012" offset="0"/>
+  </joint>
+
+  <link name="finger_left_link">
+    <inertial>
+      <origin xyz="-0.0182276041 0.00437179973 0.0058445374" rpy="0 0 0"/>
+      <mass value="0.014806497"/>
+      <inertia ixx="2.8116976e-06" ixy="-1.40574816e-06" ixz="-4.38218328e-08" iyy="7.84637133e-06" iyz="2.26467819e-07" izz="8.71295783e-06"/>
+    </inertial>
+    <visual name="finger_left">
+      <origin xyz="0.4875 0 0" rpy="0 -1.57079633 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_finger_left.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC"/>
+    </visual>
+    <visual name="pad_left">
+      <origin xyz="-0.0423 0 0.002" rpy="0 -1.57079633 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_pad_left.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Rubber_GENERIC"/>
+    </visual>
+    <visual name="rack_left">
+      <origin xyz="0.4875 0 0" rpy="0 -1.57079633 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_rack_left.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC_e6e6e2"/>
+    </visual>
+    <visual name="screw_M3x12_DIN912">
+      <origin xyz="-0.0033 0.017525 0.008" rpy="0 -1.57079633 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x12_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="screw_M3x12_DIN912_2">
+      <origin xyz="-0.0033 0.017525 0.014" rpy="0 -1.57079633 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x12_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <collision name="finger_left">
+      <origin xyz="0.4875 0 0" rpy="0 -1.57079633 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_finger_left.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="pad_left">
+      <origin xyz="-0.0423 0 0.002" rpy="0 -1.57079633 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_pad_left.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="rack_left">
+      <origin xyz="0.4875 0 0" rpy="0 -1.57079633 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_rack_left.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x12_DIN912">
+      <origin xyz="-0.0033 0.017525 0.008" rpy="0 -1.57079633 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x12_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x12_DIN912_2">
+      <origin xyz="-0.0033 0.017525 0.014" rpy="0 -1.57079633 0"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x12_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="finger_right" type="prismatic">
+    <origin xyz="0.00150796447 0 0.0455" rpy="0 -1.57079633 -3.14159265"/>
+    <parent link="gripper_link"/>
+    <child link="finger_right_link"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.00150796447" upper="0.0204920355" effort="10" velocity="0.12"/>
+    <mimic joint="gripper_pinion" multiplier="0.012" offset="0"/>
+  </joint>
+
+  <link name="finger_right_link">
+    <inertial>
+      <origin xyz="0.0182276041 -0.00437179973 0.0058445374" rpy="0 0 0"/>
+      <mass value="0.014806497"/>
+      <inertia ixx="2.8116976e-06" ixy="-1.40574816e-06" ixz="4.38218328e-08" iyy="7.84637133e-06" iyz="-2.26467819e-07" izz="8.71295783e-06"/>
+    </inertial>
+    <visual name="finger_right">
+      <origin xyz="-0.4875 0 0" rpy="0 -1.57079633 -3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_finger_left.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC"/>
+    </visual>
+    <visual name="pad_right">
+      <origin xyz="0.0423 0 0.002" rpy="0 -1.57079633 -3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_pad_left.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="Rubber_GENERIC"/>
+    </visual>
+    <visual name="rack_right">
+      <origin xyz="-0.4875 0 0" rpy="0 -1.57079633 -3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_rack_left.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="PETG_GENERIC_e6e6e2"/>
+    </visual>
+    <visual name="screw_M3x12_DIN912">
+      <origin xyz="0.0033 -0.017525 0.008" rpy="0 -1.57079633 -3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x12_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <visual name="screw_M3x12_DIN912_2">
+      <origin xyz="0.0033 -0.017525 0.014" rpy="0 -1.57079633 -3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x12_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+      <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
+    </visual>
+    <collision name="finger_right">
+      <origin xyz="-0.4875 0 0" rpy="0 -1.57079633 -3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_finger_left.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="pad_right">
+      <origin xyz="0.0423 0 0.002" rpy="0 -1.57079633 -3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_pad_left.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="rack_right">
+      <origin xyz="-0.4875 0 0" rpy="0 -1.57079633 -3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_rack_left.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x12_DIN912">
+      <origin xyz="0.0033 -0.017525 0.008" rpy="0 -1.57079633 -3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x12_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <collision name="screw_M3x12_DIN912_2">
+      <origin xyz="0.0033 -0.017525 0.014" rpy="0 -1.57079633 -3.14159265"/>
+      <geometry>
+        <mesh filename="meshes/twinarm_screw_M3x12_DIN912.stl" scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+</robot>

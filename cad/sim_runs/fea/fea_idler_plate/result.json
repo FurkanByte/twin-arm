@@ -1,0 +1,173 @@
+{
+ "ok": true,
+ "path": "ff77e0b2-79e5-5c60-b615-0131890ea430",
+ "findings": [],
+ "summary": "solved idler_plate_shoulder/idler_plate_shoulder of ff77e0b2-79e5-5c60-b615-0131890ea430: peak 3.816 MPa, safety factor 6.551",
+ "measurements": {
+  "max_von_mises_MPa": 3.816,
+  "max_von_mises_gauss_MPa": 4.0063,
+  "max_von_mises_at_mm": [
+   -6.5,
+   -37.705,
+   147.832
+  ],
+  "yield_MPa": 25.0,
+  "max_displacement_mm": 0.023419,
+  "max_displacement_at_mm": [
+   9.5,
+   -29.9,
+   119.546
+  ],
+  "applied_force_N": [
+   15.0,
+   0.0,
+   -15.0
+  ],
+  "reaction_force_N": [
+   -15.0,
+   -0.0,
+   15.0
+  ],
+  "deformation_scale": 160.0,
+  "safety_factor": 6.551,
+  "checks": [
+   {
+    "kind": "stress",
+    "label": "Strength",
+    "value": 3.816,
+    "limit": 25.0,
+    "unit": "MPa",
+    "ratio": 0.152648,
+    "close_at": 0.5,
+    "margin": 2.0,
+    "status": "passes",
+    "where": {
+     "ref": "idler_plate_shoulder/f:idler_plate.plate_ikcnpi~a2b2e132868c",
+     "at": [
+      -6.5,
+      -37.705,
+      147.832
+     ]
+    }
+   }
+  ],
+  "mesh": {
+   "elements": 24163,
+   "straightened": 0,
+   "nodes": 40778,
+   "dofs": 122334,
+   "size_mm": 1.8264,
+   "order": 2,
+   "mesher": "netgen",
+   "solver": "calculix 2.23 (C3D10)"
+  },
+  "timings": {
+   "mesh_s": 5.43,
+   "solve_s": 36.17,
+   "stress_s": 0.1
+  },
+  "study": {
+   "material": {
+    "name": "PETG FDM (interlayer)",
+    "E_MPa": 1800,
+    "nu": 0.38,
+    "yield_MPa": 25.0,
+    "density_t_per_mm3": 1.27e-09
+   },
+   "fixtures": [
+    {
+     "faces": [
+      "idler_plate_shoulder/f:idler_plate.plate_igdooi~f5b1ae6ad986",
+      "idler_plate_shoulder/f:idler_plate.plate_igdooi2~881dad8d36d2"
+     ],
+     "type": "fixed"
+    }
+   ],
+   "loads": [
+    {
+     "faces": [
+      "idler_plate_shoulder/f:idler_plate.plate_cndclj~8cda4c353c47"
+     ],
+     "type": "force",
+     "vector_N": [
+      15.0,
+      0,
+      -15.0
+     ]
+    }
+   ],
+   "margin": 2
+  },
+  "material": {
+   "name": "PETG FDM (interlayer)",
+   "E_MPa": 1800.0,
+   "nu": 0.38,
+   "yield_MPa": 25.0,
+   "density_t_per_mm3": 1.27e-09,
+   "source": "study"
+  },
+  "fixtures": [
+   {
+    "faces": [
+     "idler_plate_shoulder/f:idler_plate.plate_igdooi~f5b1ae6ad986",
+     "idler_plate_shoulder/f:idler_plate.plate_igdooi2~881dad8d36d2"
+    ],
+    "type": "fixed",
+    "reaction_N": [
+     -15.0,
+     -0.0,
+     15.0
+    ]
+   }
+  ],
+  "connections": [],
+  "overlaps": [],
+  "refined": null,
+  "named_faces": {
+   "idler_plate_shoulder/f:idler_plate.plate_igdooi~f5b1ae6ad986": {
+    "ref": "idler_plate_shoulder/f:idler_plate.plate_igdooi~f5b1ae6ad986",
+    "ordinal": 8,
+    "area": 184.7884798841516,
+    "center": [
+     -13.999999999999998,
+     -38.55,
+     170.0
+    ]
+   },
+   "idler_plate_shoulder/f:idler_plate.plate_igdooi2~881dad8d36d2": {
+    "ref": "idler_plate_shoulder/f:idler_plate.plate_igdooi2~881dad8d36d2",
+    "ordinal": 13,
+    "area": 184.7884798841516,
+    "center": [
+     13.999999999999998,
+     -38.55,
+     170.0
+    ]
+   },
+   "idler_plate_shoulder/f:idler_plate.plate_cndclj~8cda4c353c47": {
+    "ref": "idler_plate_shoulder/f:idler_plate.plate_cndclj~8cda4c353c47",
+    "ordinal": 7,
+    "area": 703.7167544041147,
+    "center": [
+     -3.552713678800501e-15,
+     -33.400000000000006,
+     136.0
+    ]
+   }
+  }
+ },
+ "status": "ok",
+ "reason": null,
+ "occurrence": "idler_plate_shoulder/idler_plate_shoulder",
+ "written": [
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\cad\\sim_runs\\fea\\fea_idler_plate\\result.json",
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\cad\\sim_runs\\fea\\fea_idler_plate\\result.glb",
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\cad\\sim_runs\\fea\\fea_idler_plate\\result.vtu",
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\cad\\sim_runs\\fea\\fea_idler_plate\\stress.png",
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\cad\\sim_runs\\fea\\fea_idler_plate\\displacement.png"
+ ],
+ "contact_tolerance_mm": null,
+ "parts": [],
+ "pairs": [],
+ "faces": []
+}

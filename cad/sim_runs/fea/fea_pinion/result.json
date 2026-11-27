@@ -1,0 +1,249 @@
+{
+ "ok": true,
+ "path": "3ea5929e-4b39-5fce-befd-774af92c2569",
+ "findings": [],
+ "summary": "solved pinion_m15z16/pinion_m15z16 of 3ea5929e-4b39-5fce-befd-774af92c2569: peak 3.0099 MPa, safety factor 8.305",
+ "measurements": {
+  "max_von_mises_MPa": 3.0099,
+  "max_von_mises_gauss_MPa": 2.5763,
+  "max_von_mises_at_mm": [
+   0.957,
+   12.624,
+   475.2
+  ],
+  "yield_MPa": 25.0,
+  "max_displacement_mm": 0.009798,
+  "max_displacement_at_mm": [
+   0.423,
+   13.643,
+   483.2
+  ],
+  "applied_force_N": [
+   -13.5,
+   0.0,
+   0.0
+  ],
+  "reaction_force_N": [
+   13.5,
+   0.0,
+   -0.0
+  ],
+  "deformation_scale": 200.0,
+  "safety_factor": 8.305,
+  "checks": [
+   {
+    "kind": "stress",
+    "label": "Strength",
+    "value": 3.0099,
+    "limit": 25.0,
+    "unit": "MPa",
+    "ratio": 0.120409,
+    "close_at": 0.5,
+    "margin": 2.0,
+    "status": "passes",
+    "where": {
+     "ref": "pinion_m15z16/f:gripper_pinion.gear_fnfbkb2~bd879fe88197",
+     "at": [
+      0.957,
+      12.624,
+      475.2
+     ]
+    }
+   }
+  ],
+  "mesh": {
+   "elements": 21357,
+   "straightened": 0,
+   "nodes": 37494,
+   "dofs": 112482,
+   "size_mm": 0.9852,
+   "order": 2,
+   "mesher": "netgen",
+   "solver": "calculix 2.23 (C3D10)"
+  },
+  "timings": {
+   "mesh_s": 6.492,
+   "solve_s": 26.851,
+   "stress_s": 0.088
+  },
+  "study": {
+   "material": {
+    "name": "PETG FDM (interlayer)",
+    "E_MPa": 1800,
+    "nu": 0.38,
+    "yield_MPa": 25.0,
+    "density_t_per_mm3": 1.27e-09
+   },
+   "fixtures": [
+    {
+     "faces": [
+      "pinion_m15z16/f:gripper_pinion.gear_fnfbkb2~bd879fe88197"
+     ],
+     "type": "fixed"
+    }
+   ],
+   "loads": [
+    {
+     "faces": [
+      "pinion_m15z16/f:gripper_pinion.gear~cedddc1a8a4c",
+      "pinion_m15z16/f:gripper_pinion.gear~68815ab602ce",
+      "pinion_m15z16/f:gripper_pinion.gear~613e8825715e",
+      "pinion_m15z16/f:gripper_pinion.gear~dc395a88a843",
+      "pinion_m15z16/f:gripper_pinion.gear~ada53ae76fc8",
+      "pinion_m15z16/f:gripper_pinion.gear~241d006061b0",
+      "pinion_m15z16/f:gripper_pinion.gear~56048bae9ea8",
+      "pinion_m15z16/f:gripper_pinion.gear~3bf5b117cecd",
+      "pinion_m15z16/f:gripper_pinion.gear~fc063103912d"
+     ],
+     "type": "force",
+     "vector_N": [
+      -13.5,
+      0,
+      0
+     ]
+    }
+   ],
+   "margin": 2
+  },
+  "material": {
+   "name": "PETG FDM (interlayer)",
+   "E_MPa": 1800.0,
+   "nu": 0.38,
+   "yield_MPa": 25.0,
+   "density_t_per_mm3": 1.27e-09,
+   "source": "study"
+  },
+  "fixtures": [
+   {
+    "faces": [
+     "pinion_m15z16/f:gripper_pinion.gear_fnfbkb2~bd879fe88197"
+    ],
+    "type": "fixed",
+    "reaction_N": [
+     13.5,
+     0.0,
+     -0.0
+    ]
+   }
+  ],
+  "connections": [],
+  "overlaps": [],
+  "refined": null,
+  "named_faces": {
+   "pinion_m15z16/f:gripper_pinion.gear_fnfbkb2~bd879fe88197": {
+    "ref": "pinion_m15z16/f:gripper_pinion.gear_fnfbkb2~bd879fe88197",
+    "ordinal": 4,
+    "area": 417.4301116168645,
+    "center": [
+     2.5951463200613034e-15,
+     -1.9250038191791465e-15,
+     475.2
+    ]
+   },
+   "pinion_m15z16/f:gripper_pinion.gear~cedddc1a8a4c": {
+    "ref": "pinion_m15z16/f:gripper_pinion.gear~cedddc1a8a4c",
+    "ordinal": 3,
+    "area": 3.214054610432246,
+    "center": [
+     1.27558217648508,
+     11.402941227038761,
+     479.2
+    ]
+   },
+   "pinion_m15z16/f:gripper_pinion.gear~68815ab602ce": {
+    "ref": "pinion_m15z16/f:gripper_pinion.gear~68815ab602ce",
+    "ordinal": 7,
+    "area": 3.3296909068246903,
+    "center": [
+     1.2188116910545255,
+     11.806815543336286,
+     479.2
+    ]
+   },
+   "pinion_m15z16/f:gripper_pinion.gear~613e8825715e": {
+    "ref": "pinion_m15z16/f:gripper_pinion.gear~613e8825715e",
+    "ordinal": 9,
+    "area": 3.441363619767256,
+    "center": [
+     1.1085934996367264,
+     12.214853932560263,
+     479.2
+    ]
+   },
+   "pinion_m15z16/f:gripper_pinion.gear~dc395a88a843": {
+    "ref": "pinion_m15z16/f:gripper_pinion.gear~dc395a88a843",
+    "ordinal": 11,
+    "area": 3.5526640426657607,
+    "center": [
+     0.9567470157843426,
+     12.62435927868096,
+     479.2
+    ]
+   },
+   "pinion_m15z16/f:gripper_pinion.gear~ada53ae76fc8": {
+    "ref": "pinion_m15z16/f:gripper_pinion.gear~ada53ae76fc8",
+    "ordinal": 13,
+    "area": 3.663844110201133,
+    "center": [
+     0.7676059997505442,
+     13.0334837141295,
+     479.2
+    ]
+   },
+   "pinion_m15z16/f:gripper_pinion.gear~241d006061b0": {
+    "ref": "pinion_m15z16/f:gripper_pinion.gear~241d006061b0",
+    "ordinal": 15,
+    "area": 3.7749700157900574,
+    "center": [
+     0.5435986403185669,
+     13.440589606287084,
+     479.2
+    ]
+   },
+   "pinion_m15z16/f:gripper_pinion.gear~56048bae9ea8": {
+    "ref": "pinion_m15z16/f:gripper_pinion.gear~56048bae9ea8",
+    "ordinal": 22,
+    "area": 3.774970015790025,
+    "center": [
+     5.645710621235793,
+     12.20945944862646,
+     479.2
+    ]
+   },
+   "pinion_m15z16/f:gripper_pinion.gear~3bf5b117cecd": {
+    "ref": "pinion_m15z16/f:gripper_pinion.gear~3bf5b117cecd",
+    "ordinal": 24,
+    "area": 3.6638441102011274,
+    "center": [
+     5.696873755599977,
+     11.747618742114854,
+     479.2
+    ]
+   },
+   "pinion_m15z16/f:gripper_pinion.gear~fc063103912d": {
+    "ref": "pinion_m15z16/f:gripper_pinion.gear~fc063103912d",
+    "ordinal": 26,
+    "area": 3.552664042665758,
+    "center": [
+     5.7150521258501135,
+     11.297255916736876,
+     479.2
+    ]
+   }
+  }
+ },
+ "status": "ok",
+ "reason": null,
+ "occurrence": "pinion_m15z16/pinion_m15z16",
+ "written": [
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\cad\\sim_runs\\fea\\fea_pinion\\result.json",
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\cad\\sim_runs\\fea\\fea_pinion\\result.glb",
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\cad\\sim_runs\\fea\\fea_pinion\\result.vtu",
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\cad\\sim_runs\\fea\\fea_pinion\\stress.png",
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\cad\\sim_runs\\fea\\fea_pinion\\displacement.png"
+ ],
+ "contact_tolerance_mm": null,
+ "parts": [],
+ "pairs": [],
+ "faces": []
+}

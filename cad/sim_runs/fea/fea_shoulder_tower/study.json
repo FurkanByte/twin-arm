@@ -1,0 +1,55 @@
+{
+ "material": {
+  "name": "PETG FDM (interlayer)",
+  "E_MPa": 1800,
+  "nu": 0.38,
+  "yield_MPa": 25.0,
+  "density_t_per_mm3": 1.27e-09
+ },
+ "fixtures": [
+  {
+   "faces": [
+    "shoulder_tower/f:shoulder_tower.body_dfonjo~89aeeb822e33"
+   ],
+   "type": "fixed"
+  }
+ ],
+ "loads": [
+  {
+   "faces": [
+    "shoulder_tower/f:shoulder_tower.body_iileig~fe9f09bd5196",
+    "shoulder_tower/f:shoulder_tower.body_iileig~df67cb87bf62"
+   ],
+   "type": "force",
+   "vector_N": [
+    60.6060606060606,
+    0,
+    -3.1125000000000003
+   ]
+  },
+  {
+   "faces": [
+    "shoulder_tower/f:shoulder_tower.body_iileig~06868be648fe",
+    "shoulder_tower/f:shoulder_tower.body_iileig~2fa102af0582"
+   ],
+   "type": "force",
+   "vector_N": [
+    -60.6060606060606,
+    0,
+    -3.1125000000000003
+   ]
+  },
+  {
+   "faces": [
+    "shoulder_tower/f:shoulder_tower.body_kkhnlf_fuse1~29965006f23d"
+   ],
+   "type": "force",
+   "vector_N": [
+    0,
+    0,
+    -6.2250000000000005
+   ]
+  }
+ ],
+ "margin": 2
+}

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TwinArm-5 Brochure</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --ink: #1c2127; --dim: #5d6773; --line: #e3e6ea; --tile: #f4f5f7;
+    --accent: #ff6a13; --dark: #2b2f36; --ok: #2fa64a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #fff; color: var(--ink);
+    font: 10.5pt/1.5 "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; height: 297mm; padding: 16mm 16mm 14mm; position: relative; overflow: hidden;
+    page-break-after: always; display: flex; flex-direction: column; }
+  .page:last-child { page-break-after: auto; }
+  h1, h2, h3 { margin: 0; line-height: 1.15; }
+  p { margin: 0; }
+  .kicker { font-size: 8.5pt; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); }
+  .foot { position: absolute; left: 16mm; right: 16mm; bottom: 9mm; display: flex; justify-content: space-between;
+    font-size: 8pt; color: var(--dim); border-top: 1px solid var(--line); padding-top: 3mm; }
+
+  /* --- page 1 --- */
+  .cover-band { position: absolute; inset: 0 0 auto 0; height: 8mm; background: var(--accent); }
+  .cover h1 { font-size: 44pt; letter-spacing: -1px; margin-top: 8mm; }
+  .cover h1 span { color: var(--accent); }
+  .cover .sub { font-size: 15pt; color: var(--dim); margin-top: 2mm; font-weight: 400; }
+  .hero { margin: 6mm -16mm 0; height: 118mm; background: linear-gradient(#e6e6e6, #efefef); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero img { width: 100%; height: 100%; object-fit: cover; }
+  .lead { font-size: 12pt; line-height: 1.6; margin-top: 8mm; }
+  .lead b { color: var(--ink); }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin-top: 8mm; }
+  .stat { background: var(--tile); border-radius: 3mm; padding: 4mm; border-top: 1.2mm solid var(--accent); }
+  .stat b { display: block; font-size: 17pt; line-height: 1.1; }
+  .stat span { display: block; font-size: 8.5pt; color: var(--dim); margin-top: 1.5mm; }
+
+  /* --- page 2 --- */
+  h2 { font-size: 22pt; margin: 2mm 0 5mm; }
+  .flow { display: grid; grid-template-columns: 1fr 9mm 1fr 9mm 1fr 9mm 1fr; align-items: center; margin-bottom: 6mm; }
+  .node { background: var(--tile); border-radius: 3mm; padding: 3.5mm 3mm; text-align: center; min-height: 23mm;
+    display: flex; flex-direction: column; justify-content: center; }
+  .node b { font-size: 10.5pt; }
+  .node span { font-size: 8pt; color: var(--dim); }
+  .node.hl { background: var(--dark); color: #fff; }
+  .node.hl span { color: #c5ccd5; }
+  .arrow { text-align: center; color: var(--accent); font-size: 15pt; font-weight: 700; }
+  .flow-cap { display: flex; justify-content: space-between; font-size: 8pt; color: var(--dim); margin: -3mm 0 6mm; }
+  .steps { display: grid; gap: 4.5mm; }
+  .step { display: grid; grid-template-columns: 9mm 1fr; gap: 4mm; }
+  .num { width: 9mm; height: 9mm; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 800;
+    display: flex; align-items: center; justify-content: center; font-size: 11pt; }
+  .step h3 { font-size: 12.5pt; margin-bottom: 1mm; }
+  .step p { color: #333a42; }
+  .pics { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 5mm; margin-top: auto; margin-bottom: 9mm; }
+  .pic { margin: 0; }
+  .pic img { width: 100%; height: 88mm; object-fit: cover; border-radius: 2.5mm; display: block; border: 1px solid var(--line); }
+  .pic.contain img { object-fit: contain; background: #f0f4f9; }
+  .pic figcaption { font-size: 8pt; color: var(--dim); margin-top: 1.5mm; }
+
+  /* --- page 3 --- */
+  .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5mm; margin-bottom: 7mm; }
+  .check { border: 1px solid var(--line); border-radius: 3mm; padding: 3.5mm 4mm; display: grid; grid-template-columns: 7mm 1fr; gap: 2.5mm; }
+  .tick { width: 7mm; height: 7mm; border-radius: 50%; background: var(--ok); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 9pt; }
+  .check b { display: block; font-size: 10.5pt; }
+  .check span { font-size: 9pt; color: var(--dim); }
+  h3.sec { font-size: 12.5pt; margin: 0 0 3mm; }
+  .cost { display: grid; grid-template-columns: 38mm 1fr 22mm; gap: 1.8mm 3mm; align-items: center; font-size: 9.5pt; }
+  .cost .bar { height: 4.2mm; background: var(--tile); border-radius: 1mm; overflow: hidden; }
+  .cost .bar i { display: block; height: 100%; background: var(--dark); border-radius: 1mm; }
+  .cost .bar i.a { background: var(--accent); }
+  .cost .v { text-align: right; font-variant-numeric: tabular-nums; }
+  .cost .tot { font-weight: 800; border-top: 1px solid var(--line); padding-top: 1.8mm; }
+  .note { font-size: 8.5pt; color: var(--dim); margin-top: 2.5mm; }
+  .road { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0; margin-top: 2mm; position: relative; }
+  .road::before { content: ""; position: absolute; left: 7%; right: 7%; top: 3.5mm; height: 0.8mm; background: var(--line); }
+  .ms { text-align: center; position: relative; padding: 0 1mm; }
+  .ms i { display: block; width: 7.5mm; height: 7.5mm; margin: 0 auto 2mm; border-radius: 50%; background: #fff;
+    border: 0.8mm solid #c8ced6; position: relative; z-index: 1; font-style: normal; font-size: 8pt; line-height: 6mm; font-weight: 800; color: #fff; }
+  .ms.done i { background: var(--ok); border-color: var(--ok); }
+  .ms.next i { border-color: var(--accent); }
+  .ms b { display: block; font-size: 8.5pt; line-height: 1.25; }
+  .ms span { display: block; font-size: 7.5pt; color: var(--dim); }
+  .ms.next b { color: var(--accent); }
+  .tech { margin-top: auto; margin-bottom: 9mm; background: var(--dark); color: #fff; border-radius: 3mm; padding: 5mm 6mm;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; }
+  .tech b { display: block; color: var(--accent); font-size: 8.5pt; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1mm; }
+  .tech span { font-size: 9pt; color: #dfe4ea; }
+  .feats { display: grid; grid-template-columns: 1fr 1fr; gap: 3.2mm 5mm; margin-bottom: 7mm; }
+  .feat { display: grid; grid-template-columns: 10mm 1fr; gap: 3mm; padding: 3.2mm 0; border-top: 1px solid var(--line); }
+  .feat i { font-style: normal; font-weight: 800; font-size: 13pt; color: var(--accent); line-height: 1.2; }
+  .feat b { display: block; font-size: 11pt; margin-bottom: 0.8mm; }
+  .feat span { font-size: 9pt; color: #3e4650; line-height: 1.45; }
+  .checks4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin-bottom: 6mm; }
+  .checks4 .check { grid-template-columns: 6mm 1fr; padding: 3mm; }
+  .checks4 .tick { width: 6mm; height: 6mm; font-size: 8pt; }
+  .checks4 b { font-size: 9.5pt; }
+  .checks4 span { font-size: 8pt; }
+</style>
+</head>
+<body>
+
+<!-- ============================ 1. COVER ============================ -->
+<section class="page cover">
+  <div class="cover-band"></div>
+  <div class="kicker" style="margin-top:6mm">Graduation project · Mechatronics</div>
+  <h1>TwinArm<span>-5</span></h1>
+  <p class="sub">A 3D-printed desktop robot arm with a digital twin</p>
+
+  <div class="hero"><img src="render_hero.jpg" alt="TwinArm-5 robot arm"></div>
+
+  <p class="lead">
+    TwinArm-5 is a 5-axis robot arm built from <b>parts available in Turkey</b>, together with its
+    <b>digital twin</b> on the computer. The twin shows every move of the real arm in real time. It uses
+    colors to show how hard each motor is working and how hot it is getting, and it warns you before a
+    motor overheats. When the arm is not connected, the twin runs on its own as a simulation, so a new
+    motion can be tried on the computer first.
+  </p>
+
+  <div class="stats">
+    <div class="stat"><b>5 + 1</b><span>joints and a parallel gripper, 6 servos</span></div>
+    <div class="stat"><b>~400 mm</b><span>reach from shoulder to tip</span></div>
+    <div class="stat"><b>250 g</b><span>grasp and lift (150 g continuous)</span></div>
+    <div class="stat"><b>3 sensors</b><span>angle, current and temperature on every servo</span></div>
+  </div>
+
+  <div class="foot"><span>TwinArm-5 · robot arm with a digital twin</span><span>1 / 3</span></div>
+</section>
+
+<!-- ============================ 2. HOW IT WORKS ============================ -->
+<section class="page">
+  <div class="kicker">How does it work?</div>
+  <h2>The real arm and its twin, side by side</h2>
+
+  <div class="flow">
+    <div class="node"><b>Robot arm</b><span>6 servos, sensors</span></div>
+    <div class="arrow">→</div>
+    <div class="node"><b>Control box</b><span>ESP32, power, emergency stop</span></div>
+    <div class="arrow">→</div>
+    <div class="node hl"><b>Computer</b><span>physics simulation (MuJoCo)</span></div>
+    <div class="arrow">→</div>
+    <div class="node"><b>Phone / browser</b><span>digital twin screen</span></div>
+  </div>
+  <div class="flow-cap"><span>Arm → twin: angle · current · temperature (100 times per second)</span><span>Twin → arm: motion commands</span></div>
+
+  <div class="steps">
+    <div class="step"><div class="num">1</div><div>
+      <h3>Robot arm</h3>
+      <p>The body is 3D printed in PETG and driven by digital servos. In the base, bearings carry the heavy
+      load, so the servo shaft is not stressed. The cables do not run outside; they pass through
+      <b>channels inside the arm</b>: through a hollow shaft at the pitch joints and through a closed cable
+      chamber at the rotating joints.</p></div></div>
+    <div class="step"><div class="num">2</div><div>
+      <h3>Sensors and control box</h3>
+      <p>Three values are measured for each servo. The <b>angle</b> comes from the servo's own potentiometer,
+      the <b>current</b> (that is, the load) from an INA226 current sensor, and the <b>temperature</b> from
+      a DS18B20 next to the servo. The ESP32 sends this data to the computer and passes commands to the
+      servos. The emergency stop button cuts the power directly.</p></div></div>
+    <div class="step"><div class="num">3</div><div>
+      <h3>Digital twin</h3>
+      <p>The arm's physics model runs on the computer and can be opened from any phone or computer on the
+      same network. In <b>Live mode</b> it follows the real arm one to one; if the measured load is higher
+      than the model expects, it warns of a jam. In <b>Sim mode</b> it runs without the arm. As the servos
+      work harder and heat up, they turn from green to yellow to red, with warnings such as "65 °C in
+      4 minutes at this load".</p></div></div>
+  </div>
+
+  <div class="pics">
+    <figure class="pic contain"><img src="../img/internal_cabling_section.png" alt="Internal cable path section">
+      <figcaption>Section: the blue cable harness runs inside the arm and through the joint axes.</figcaption></figure>
+    <figure class="pic"><img src="twin_web.png" alt="Digital twin web app">
+      <figcaption>Digital twin: 3D arm, poses, demo, and the load and temperature of every servo.</figcaption></figure>
+  </div>
+
+  <div class="foot"><span>TwinArm-5 · robot arm with a digital twin</span><span>2 / 3</span></div>
+</section>
+
+<!-- ============================ 3. FEATURES ============================ -->
+<section class="page">
+  <div class="kicker">Key features</div>
+  <h2>Industrial-arm capabilities on a desktop</h2>
+
+  <div class="feats">
+    <div class="feat"><i>01</i><div><b>Internal cabling</b>
+      <span>Only one cable is visible. At the joints the harness passes through a hollow shaft; at the rotating joints it coils in a closed chamber, so it cannot snag or get crushed.</span></div></div>
+    <div class="feat"><i>02</i><div><b>Three measurements per servo</b>
+      <span>Angle, current and temperature are read 100 times per second. What the arm is doing and how hard it is working is always known.</span></div></div>
+    <div class="feat"><i>03</i><div><b>Sees overheating coming</b>
+      <span>A thermal model calculates how many minutes the motor has before it reaches its limit at the current load, and warns in advance.</span></div></div>
+    <div class="feat"><i>04</i><div><b>Jam and collision detection</b>
+      <span>If the measured load is clearly higher than the model expects in the same pose, the twin gives a warning at once.</span></div></div>
+    <div class="feat"><i>05</i><div><b>Monitoring from a phone</b>
+      <span>The digital twin is a web app. It opens on any phone or computer on the same Wi-Fi, and several people can watch at the same time.</span></div></div>
+    <div class="feat"><i>06</i><div><b>Basic and Advanced mode</b>
+      <span>Basic mode shows simple cards and poses; Advanced mode adds joint sliders, live charts, power measurement and an event log.</span></div></div>
+    <div class="feat"><i>07</i><div><b>Works without the arm</b>
+      <span>In Sim mode the same physics model runs with the torque and speed of the real servos. A new motion is tried on screen first.</span></div></div>
+    <div class="feat"><i>08</i><div><b>Parallel gripper</b>
+      <span>A rack-and-pinion gear mechanism opens and closes both fingers together: 2–46 mm opening, rubber pads.</span></div></div>
+    <div class="feat"><i>09</i><div><b>Sturdy base</b>
+      <span>Two bearings carry the weight of the arm and the tipping force; the base servo only rotates and is not stressed.</span></div></div>
+    <div class="feat"><i>10</i><div><b>Safety</b>
+      <span>The emergency stop button cuts the servo power directly; the arm only runs again after START is pressed.</span></div></div>
+  </div>
+
+  <h3 class="sec">Tested on the computer before being built</h3>
+  <div class="checks4">
+    <div class="check"><div class="tick">✓</div><div><b>Physics simulation</b><span>grasps up to 250 g, no servo at its limit</span></div></div>
+    <div class="check"><div class="tick">✓</div><div><b>Strength</b><span>even the weakest part carries more than 5 times its load</span></div></div>
+    <div class="check"><div class="tick">✓</div><div><b>Collision</b><span>154 parts, no overlap in any pose</span></div></div>
+    <div class="check"><div class="tick">✓</div><div><b>Printing</b><span>all 21 parts can be printed on a 3D printer</span></div></div>
+  </div>
+
+  <div class="tech">
+    <div><b>Design</b><span>Parametric CAD, FreeCAD technical drawings, 3D printing (PETG)</span></div>
+    <div><b>Simulation</b><span>MuJoCo physics model, finite element analysis, thermal model</span></div>
+    <div><b>Software</b><span>ESP32 controller, web-based digital twin (phone + computer)</span></div>
+  </div>
+
+  <div class="foot"><span>TwinArm-5 · robot arm with a digital twin</span><span>3 / 3</span></div>
+</section>
+
+</body>
+</html>

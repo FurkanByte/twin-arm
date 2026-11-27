@@ -1,0 +1,76 @@
+{
+ "fea_upper_arm": {
+  "load": "elbow torque couple 31 N x 49.5 mm + weight 7.4 N (+X)",
+  "max_von_mises_MPa": 1.6256,
+  "safety_factor": 15.379,
+  "max_displacement_mm": 0.027226,
+  "at_mm": [
+   10.579,
+   -29.15,
+   250.759
+  ],
+  "findings": []
+ },
+ "fea_shoulder_tower": {
+  "load": "shoulder torque couple 61 N + weight 12.5 N (-Z)",
+  "max_von_mises_MPa": 2.0122,
+  "safety_factor": 12.424,
+  "max_displacement_mm": 0.090995,
+  "at_mm": [
+   -6.672,
+   -16.4,
+   105.85
+  ],
+  "findings": [
+   "solver_note: 176889 degrees of freedom: expect a slow solve; a larger mesh.size_mm is usually enough"
+  ]
+ },
+ "fea_finger": {
+  "load": "grip 13.5 N (+X, inner face)",
+  "max_von_mises_MPa": 4.5396,
+  "safety_factor": 5.507,
+  "max_displacement_mm": 0.471398,
+  "at_mm": [
+   3.0,
+   12.0,
+   495.8
+  ],
+  "findings": []
+ },
+ "fea_pinion": {
+  "load": "13.5 N on the tooth flank (tangential)",
+  "max_von_mises_MPa": 3.0099,
+  "safety_factor": 8.305,
+  "max_displacement_mm": 0.009798,
+  "at_mm": [
+   0.957,
+   12.624,
+   475.2
+  ],
+  "findings": []
+ },
+ "fea_idler_plate": {
+  "load": "21 N on the bearing seat (45°)",
+  "max_von_mises_MPa": 3.816,
+  "safety_factor": 6.551,
+  "max_displacement_mm": 0.023419,
+  "at_mm": [
+   -6.5,
+   -37.705,
+   147.832
+  ],
+  "findings": []
+ },
+ "fea_turntable": {
+  "load": "tipping couple ±60 N + weight 15 N",
+  "max_von_mises_MPa": 0.9412,
+  "safety_factor": 26.561,
+  "max_displacement_mm": 0.002246,
+  "at_mm": [
+   26.006,
+   4.729,
+   94.0
+  ],
+  "findings": []
+ }
+}

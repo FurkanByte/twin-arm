@@ -1,0 +1,243 @@
+{
+ "ok": true,
+ "path": "9ec0b715-4e38-5d65-9ccf-d479cc879c37",
+ "findings": [],
+ "summary": "solved turntable/turntable of 9ec0b715-4e38-5d65-9ccf-d479cc879c37: peak 0.9412 MPa, safety factor 26.561",
+ "measurements": {
+  "max_von_mises_MPa": 0.9412,
+  "max_von_mises_gauss_MPa": 0.825,
+  "max_von_mises_at_mm": [
+   26.006,
+   4.729,
+   94.0
+  ],
+  "yield_MPa": 25.0,
+  "max_displacement_mm": 0.002246,
+  "max_displacement_at_mm": [
+   25.349,
+   -20.969,
+   94.0
+  ],
+  "applied_force_N": [
+   0.0,
+   0.0,
+   -15.0
+  ],
+  "reaction_force_N": [
+   -0.0,
+   -0.0,
+   15.0
+  ],
+  "deformation_scale": 3200.0,
+  "safety_factor": 26.561,
+  "checks": [
+   {
+    "kind": "stress",
+    "label": "Strength",
+    "value": 0.9412,
+    "limit": 25.0,
+    "unit": "MPa",
+    "ratio": 0.037649,
+    "close_at": 0.5,
+    "margin": 2.0,
+    "status": "passes",
+    "where": {
+     "ref": "turntable/f:turntable.body_jhcjio~3cc81d09807f",
+     "at": [
+      26.006,
+      4.729,
+      94.0
+     ]
+    }
+   }
+  ],
+  "mesh": {
+   "elements": 21117,
+   "straightened": 7,
+   "nodes": 36945,
+   "dofs": 110835,
+   "size_mm": 3.5679,
+   "order": 2,
+   "mesher": "netgen",
+   "solver": "calculix 2.23 (C3D10)"
+  },
+  "timings": {
+   "mesh_s": 7.582,
+   "solve_s": 20.112,
+   "stress_s": 0.083
+  },
+  "study": {
+   "material": {
+    "name": "PETG FDM (interlayer)",
+    "E_MPa": 1800,
+    "nu": 0.38,
+    "yield_MPa": 25.0,
+    "density_t_per_mm3": 1.27e-09
+   },
+   "fixtures": [
+    {
+     "faces": [
+      "turntable/f:turntable.body_epgodo~c1bd740a546c",
+      "turntable/f:turntable.hub.1;M:turntable.body"
+     ],
+     "type": "fixed"
+    },
+    {
+     "faces": [
+      "turntable/f:turntable.body_epgodo~1d20de88974e"
+     ],
+     "type": "roller"
+    }
+   ],
+   "loads": [
+    {
+     "faces": [
+      "turntable/f:turntable.body_lbbgal4~74e96dfa5b65",
+      "turntable/f:turntable.body_lbbgal2~d2dc2606f0c8"
+     ],
+     "type": "force",
+     "vector_N": [
+      0,
+      0,
+      -67.5
+     ]
+    },
+    {
+     "faces": [
+      "turntable/f:turntable.body_lbbgal3~c3ed99e32dff",
+      "turntable/f:turntable.body_lbbgal~a751c1ef9c0d"
+     ],
+     "type": "force",
+     "vector_N": [
+      0,
+      0,
+      52.5
+     ]
+    }
+   ],
+   "margin": 2
+  },
+  "material": {
+   "name": "PETG FDM (interlayer)",
+   "E_MPa": 1800.0,
+   "nu": 0.38,
+   "yield_MPa": 25.0,
+   "density_t_per_mm3": 1.27e-09,
+   "source": "study"
+  },
+  "fixtures": [
+   {
+    "faces": [
+     "turntable/f:turntable.body_epgodo~c1bd740a546c",
+     "turntable/f:turntable.hub.1;M:turntable.body"
+    ],
+    "type": "fixed",
+    "reaction_N": [
+     -0.0,
+     -0.0,
+     0.6531
+    ]
+   },
+   {
+    "faces": [
+     "turntable/f:turntable.body_epgodo~1d20de88974e"
+    ],
+    "type": "roller",
+    "reaction_N": [
+     0.0,
+     0.0,
+     14.3469
+    ]
+   }
+  ],
+  "connections": [],
+  "overlaps": [],
+  "refined": null,
+  "named_faces": {
+   "turntable/f:turntable.body_epgodo~c1bd740a546c": {
+    "ref": "turntable/f:turntable.body_epgodo~c1bd740a546c",
+    "ordinal": 3,
+    "area": 2775.597109446582,
+    "center": [
+     0.0,
+     -2.4400861067203696e-16,
+     77.25
+    ]
+   },
+   "turntable/f:turntable.hub.1;M:turntable.body": {
+    "ref": "turntable/f:turntable.hub.1;M:turntable.body",
+    "ordinal": 7,
+    "area": 2733.18560862312,
+    "center": [
+     0.0,
+     5.640896529846617e-17,
+     64.5
+    ]
+   },
+   "turntable/f:turntable.body_epgodo~1d20de88974e": {
+    "ref": "turntable/f:turntable.body_epgodo~1d20de88974e",
+    "ordinal": 4,
+    "area": 5683.677263243859,
+    "center": [
+     0.0,
+     0.9855395550876729,
+     82.0
+    ]
+   },
+   "turntable/f:turntable.body_lbbgal4~74e96dfa5b65": {
+    "ref": "turntable/f:turntable.body_lbbgal4~74e96dfa5b65",
+    "ordinal": 13,
+    "area": 87.96459430051421,
+    "center": [
+     24.999999999999996,
+     3.0,
+     90.5
+    ]
+   },
+   "turntable/f:turntable.body_lbbgal2~d2dc2606f0c8": {
+    "ref": "turntable/f:turntable.body_lbbgal2~d2dc2606f0c8",
+    "ordinal": 17,
+    "area": 87.96459430051421,
+    "center": [
+     24.999999999999996,
+     -19.0,
+     90.5
+    ]
+   },
+   "turntable/f:turntable.body_lbbgal3~c3ed99e32dff": {
+    "ref": "turntable/f:turntable.body_lbbgal3~c3ed99e32dff",
+    "ordinal": 15,
+    "area": 87.96459430051421,
+    "center": [
+     -24.999999999999996,
+     3.0,
+     90.5
+    ]
+   },
+   "turntable/f:turntable.body_lbbgal~a751c1ef9c0d": {
+    "ref": "turntable/f:turntable.body_lbbgal~a751c1ef9c0d",
+    "ordinal": 30,
+    "area": 87.96459430051421,
+    "center": [
+     -24.999999999999996,
+     -19.0,
+     90.5
+    ]
+   }
+  }
+ },
+ "status": "ok",
+ "reason": null,
+ "occurrence": "turntable/turntable",
+ "written": [
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\cad\\sim_runs\\fea\\fea_turntable\\result.json",
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\cad\\sim_runs\\fea\\fea_turntable\\result.glb",
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\cad\\sim_runs\\fea\\fea_turntable\\result.vtu",
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\cad\\sim_runs\\fea\\fea_turntable\\stress.png",
+  "C:\\Users\\furka\\orca\\workspaces\\digital-twin\\lookdown\\cad\\sim_runs\\fea\\fea_turntable\\displacement.png"
+ ],
+ "contact_tolerance_mm": null,
+ "parts": [],
+ "pairs": [],
+ "faces": []
+}

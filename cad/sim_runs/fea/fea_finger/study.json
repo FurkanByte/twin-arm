@@ -1,0 +1,35 @@
+{
+ "material": {
+  "name": "PETG FDM (interlayer)",
+  "E_MPa": 1800,
+  "nu": 0.38,
+  "yield_MPa": 25.0,
+  "density_t_per_mm3": 1.27e-09
+ },
+ "fixtures": [
+  {
+   "faces": [
+    "finger_right/f:finger.body_nmoabm2~0b741a7f5667",
+    "finger_right/f:finger.body_nmoabm2~5e04d4b6eb06",
+    "finger_right/f:finger.body_nmoabm2~c9497787b9a8",
+    "finger_right/f:finger.body_nmoabm~7d6c47c72553",
+    "finger_right/f:finger.body_mapjjf2~30c8a530109d"
+   ],
+   "type": "fixed"
+  }
+ ],
+ "loads": [
+  {
+   "faces": [
+    "finger_right/f:finger.foot.1;M:finger.body+f:finger.blade.1"
+   ],
+   "type": "force",
+   "vector_N": [
+    13.5,
+    0,
+    0
+   ]
+  }
+ ],
+ "margin": 2
+}

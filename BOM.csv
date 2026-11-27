@@ -1,0 +1,70 @@
+﻿Group;Item;CAD count/quantity;To buy;Supplier;URL;Unit/pack TL (VAT incl.);Total TL;Status
+Bearings;51107 thrust bearing 35×52×12;1;1;rulmanbayisi.com;https://www.rulmanbayisi.com/i/csk-51107;58.00;58.00;verify (by phone)
+Bearings;6006ZZ radial bearing 30×55×13;1;1;hardware store / local;local bearing shop;120.00;120.00;verify
+Bearings;"6804-2RS thin-section bearing 20×32×7 (hollow shaft, cable pass-through; pack of 5)";3;1 × pack of 5;akakce.com (KWC 6804 2RS pack of 5);https://www.akakce.com/arama/?q=6804+2rs+rulman;298.90;298.90;verify
+Electronics;ADS1115 16-bit 4-channel ADC;3;3;Direnc.net;https://www.direnc.net/ads1115-16-bit-i2c-4-kanal-modul;145.18;435.54;orderable
+Electronics;Double-sided perfboard 7×9 (cut to 5×7);2;2;Motorobit;https://www.motorobit.com/7x9cm-epoxy-double-sided-perforated-plaque;46.36;92.72;in stock
+Electronics;1000 µF 16 V low-ESR electrolytic;2;2;Direnc.net;direnc.net;10.00;20.00;verify
+Electronics;DS18B20 TO-92 temperature sensor;6;6;Direnc.net;https://www.direnc.net/ds18b20-sicaklik-sensor-entegresi-to-92;29.28;175.68;orderable
+Electronics;ESP32-S3 Super Mini;1;1;Direnc.net;https://www.direnc.net/esp32-s3-wifi-bluetooth-board;349.34;349.34;orderable
+Electronics;CHINT NP2-BE102 emergency stop (NC);1;1;Motorobit;https://www.motorobit.com/np2-be102-nc-metal-acil-stop-butonu;309.00;309.00;in stock
+Electronics;40×40×10 mm 12 V fan;1;1;hardware store / local;;60.00;60.00;verify
+Electronics;ATO blade fuse holder + 15 A fuse;1;1;hardware store / local;auto electrician;60.00;60.00;verify
+Electronics;GX12 4-pin aviation connector (panel + plug);1;1;hardware store / local;electronics supply store;60.00;60.00;verify
+Electronics;GX20 12-pin aviation connector (panel + plug);3;3;hardware store / local;electronics supply store;100.00;300.00;verify
+Electronics;INA226 bidirectional current/power sensor module;6;6;Direnc.net;https://www.direnc.net/ina226-iki-yonlu-akim-guc-izleme-sensor-modulu;108.89;653.34;orderable
+Electronics;12 V 40 A 5-pin automotive relay + socket;1;1;hardware store / local;auto electrician;150.00;150.00;verify
+Electronics;NP2-BA31 green START button (NO);1;1;hardware store / local;electrical supply store;250.00;250.00;verify
+Electronics;Wago 221-415 (5-way) connector;2;2;hardware store / local;electrical supply store;25.00;50.00;verify
+Electronics;XL4016 300 W (8 A) adjustable step-down;2;2;Direnc.net;https://www.direnc.net/dc-dc-step-down-modul-xl4016-300w;169.38;338.76;orderable
+Electronics;XT60 male-female (panel);1;1;Direnc.net;https://www.direnc.net/xt60-plug-60a-li-po-konnektor;18.87;18.87;in stock
+Fasteners;MG90S horn screw (in the servo box);1;1;with servo;;0.00;0.00;included
+Fasteners;"M3×8 horn center screw (DIN912; if not supplied with the horn)";5;1 × pack of 10;Robolink;same set;63.00;63.00;in stock
+Fasteners;M3×5.75 brass heat-set insert (pack of 10);54;6 × pack of 10;Robolink;https://www.robolinkmarket.com/m3x575mm-pirinc-insert-10-adet;72.00;432.00;in stock
+Fasteners;M3 nut (fan, XT60);6;1 × pack of 10;Robolink;from the M3 screw set;15.00;15.00;in stock
+Fasteners;Ø10×3 adhesive rubber foot (box);4;1 × pack of 4;hardware store / local;;30.00;30.00;verify
+Fasteners;M3×10 socket head DIN912;13;2 × pack of 10;hardware store / local;;45.00;90.00;verify
+Fasteners;M3×12 socket head DIN912 (finger → rack);4;1 × pack of 10;Robolink;robolinkmarket.com M3×12;60.00;60.00;in stock
+Fasteners;M3×16 socket head DIN912 (fan);4;1 × pack of 10;hardware store / local;;50.00;50.00;verify
+Fasteners;M3×20 socket head DIN912 (idler/cable cover → bridge);6;1 × pack of 10;Robolink;robolinkmarket.com M3×20;70.00;70.00;verify
+Fasteners;M3×6 socket head DIN912;20;2 × pack of 10;hardware store / local;;40.00;80.00;verify
+Fasteners;M3×8 socket head DIN912 (set of 10);10;1 × pack of 10;Robolink;https://www.robolinkmarket.com/m3x8-imbus-vida-somun-ve-pul-seti-10lu-paket;63.00;63.00;in stock
+Fasteners;M3×8 button head ISO7380 (covers);8;1 × pack of 10;hardware store / local;;50.00;50.00;verify
+Fasteners;M5×16 bolt/wood screw (table mounting);4;1 × pack of 10;Robolink;robolinkmarket.com M5;48.00;48.00;in stock
+Fasteners;M2.5×8 self-tapping screw (gripper flange → J5 horn);4;1 × pack of 10;hardware store / local;;25.00;25.00;verify
+Fasteners;M2×10 self-tapping screw (pinion → MG90S horn);2;1 × pack of 10;hardware store / local;;25.00;25.00;verify
+Fasteners;M2×6 self-tapping screw (shaft-end retainer washer);6;1 × pack of 10;hardware store / local;;25.00;25.00;verify
+Fasteners;"M2×8 self-tapping screw (MG90S ears; in the servo box)";2;2;with servo;;0.00;0.00;included
+Fasteners;M3×8 self-tapping screw for plastic (servo far ear);10;1 × pack of 10;hardware store / local;;30.00;30.00;verify
+Fasteners;M3×10 set screw (turntable torque pin);2;1 × pack of 10;hardware store / local;;40.00;40.00;verify
+Fasteners;M3×4 set screw (hub collar);1;1 × pack of 10;hardware store / local;;30.00;30.00;verify
+Mechanical;Rubber pad (cut 24×38 from a 2 mm sheet);2;1 × pack of 2;hardware store / local;;50.00;50.00;verify
+Servos;25T aluminum single-arm servo horn (holes at 20/24 mm);3;3;Motorobit;motorobit.com — '25T metal servo horn';120.00;360.00;verify
+Servos;Disc horn + horn screw (from the servo box);3;3;with servo;;0.00;0.00;included
+Servos;DS3218MG 20 kg·cm (base, wrist pitch, wrist roll);3;3;Motorobit;https://www.motorobit.com/ds3218mg-20kg-su-gecirmez-dijital-servo-motor;1328.70;3986.10;in stock
+Servos;DS3230MG 30 kg·cm (elbow);1;1;Motorobit;https://motorobit.com/ds3230mg-30kg-su-gecirmez-dijital-servo-motor;1977.60;1977.60;in stock
+Servos;"Tower Pro MG90S (gripper; horn + screws in the box)";1;1;Motorobit;https://www.motorobit.com/tower-pro-mg90s-rc-servo-motor;154.50;154.50;in stock
+Servos;RDS3235 35 kg·cm digital servo (shoulder);1;1;Motorobit;https://www.motorobit.com/rds3235-35kg-dijital-servo-motor-180-u-servo-braket-dahil;2657.40;2657.40;in stock
+Electronics;12 V 10 A metal-case power supply (HT-1115);1;1;Motorobit;https://www.motorobit.com/hightek-12v-10a-metal-kasa-adaptor-led-driver;556.20;556.20;in stock
+Electronics;Grounded mains cable with plug + PSU terminal cover;1;1;hardware store / local;;80.00;80.00;verify
+Electronics;R010 (0.01 Ω) 2512 shunt resistor (for the INA226s);6;6;Direnc.net;https://www.direnc.net/10mr-2515-sont-direnc;39.63;237.78;in stock
+Electronics;Resistor set: 10 k ×18, 330 Ω ×6, 4.7 k, 100 Ω, 100 k, 22 k;1;1;Direnc.net;;60.00;60.00;verify
+Electronics;100 nF ceramic capacitor ×12, 3.3 V zener, 1N4007 ×2, BC547;1;1;Direnc.net;;50.00;50.00;verify
+Electronics;JST-XH connector set (230 pieces);1;1;Robolink;https://www.robolinkmarket.com/jst-xh-xhp-254mm-tunik-konnektor-seti;186.00;186.00;in stock
+Electronics;Female/male pin header strip (40-pin) ×4;4;4;Direnc.net;;10.00;40.00;verify
+Cables;Silicone wire 20 AWG red + black (servo power), 7 m + 7 m (internal harness runs: 0.78–1.40 m per servo, 6.5 m total);14;14;Motorobit;motorobit.com silicone wire;35.00;490.00;verify
+Cables;Silicone wire 26 AWG (PWM ×6.5 m, 1-Wire 3 wires, I²C inside the box), 5 m spool ×6;6;6;Motorobit;;60.00;360.00;verify
+Cables;30 AWG wire-wrap wire (pot leads), 1 spool;1;1;Direnc.net;;90.00;90.00;verify
+Cables;Silicone wire 1.5 mm² (12 V input), 2 m;2;2;hardware store / local;;30.00;60.00;verify
+Cables;Braided cable sleeve (PET) 6 mm, 3 m (harness inside the arm) + 10 mm, 2 m (arm → box);1;1;hardware store / local;;90.00;90.00;verify
+Cables;Zip ties 2.5 mm (pack of 100) + Kapton tape (chafe protection at shaft/chamber pass-throughs);1;1;Robolink;;110.00;110.00;verify
+Cables;Heat-shrink tubing set;1;1;Direnc.net;;60.00;60.00;verify
+Cables;USB-C data cable 1.5 m + ferrite;1;1;hardware store / local;;80.00;80.00;verify
+Consumables;Thermal adhesive 5 g (DS18B20);1;1;Direnc.net;https://www.direnc.net/termal-slikon-yapistirici-sogutucu-5gr;45.37;45.37;in stock
+Consumables;Solder wire 0.8 mm 100 g + flux;1;1;Direnc.net;;120.00;120.00;verify
+Consumables;Medium-strength threadlocker (horn screws);1;1;hardware store / local;;80.00;80.00;verify
+Consumables;Double-sided foam tape (Wago, fuse holder);1;1;hardware store / local;;40.00;40.00;verify
+Filament;PETG 1.75 mm 1 kg spool — dark anthracite (~750 g);1;1;porima3d.com (Eco PETG) / Microzey;https://www.porima3d.com;708.48;708.48;in stock
+Filament;PETG 1.75 mm 1 kg spool — orange (~352 g);1;1;porima3d.com (Eco PETG) / Microzey;https://www.porima3d.com;708.48;708.48;in stock
+
+;TOTAL;;;;;;18464.06;

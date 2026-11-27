@@ -1,0 +1,32 @@
+{
+ "material": {
+  "name": "PETG FDM (interlayer)",
+  "E_MPa": 1800,
+  "nu": 0.38,
+  "yield_MPa": 25.0,
+  "density_t_per_mm3": 1.27e-09
+ },
+ "fixtures": [
+  {
+   "faces": [
+    "idler_plate_shoulder/f:idler_plate.plate_igdooi~f5b1ae6ad986",
+    "idler_plate_shoulder/f:idler_plate.plate_igdooi2~881dad8d36d2"
+   ],
+   "type": "fixed"
+  }
+ ],
+ "loads": [
+  {
+   "faces": [
+    "idler_plate_shoulder/f:idler_plate.plate_cndclj~8cda4c353c47"
+   ],
+   "type": "force",
+   "vector_N": [
+    15.0,
+    0,
+    -15.0
+   ]
+  }
+ ],
+ "margin": 2
+}

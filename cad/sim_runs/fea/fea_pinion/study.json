@@ -1,0 +1,39 @@
+{
+ "material": {
+  "name": "PETG FDM (interlayer)",
+  "E_MPa": 1800,
+  "nu": 0.38,
+  "yield_MPa": 25.0,
+  "density_t_per_mm3": 1.27e-09
+ },
+ "fixtures": [
+  {
+   "faces": [
+    "pinion_m15z16/f:gripper_pinion.gear_fnfbkb2~bd879fe88197"
+   ],
+   "type": "fixed"
+  }
+ ],
+ "loads": [
+  {
+   "faces": [
+    "pinion_m15z16/f:gripper_pinion.gear~cedddc1a8a4c",
+    "pinion_m15z16/f:gripper_pinion.gear~68815ab602ce",
+    "pinion_m15z16/f:gripper_pinion.gear~613e8825715e",
+    "pinion_m15z16/f:gripper_pinion.gear~dc395a88a843",
+    "pinion_m15z16/f:gripper_pinion.gear~ada53ae76fc8",
+    "pinion_m15z16/f:gripper_pinion.gear~241d006061b0",
+    "pinion_m15z16/f:gripper_pinion.gear~56048bae9ea8",
+    "pinion_m15z16/f:gripper_pinion.gear~3bf5b117cecd",
+    "pinion_m15z16/f:gripper_pinion.gear~fc063103912d"
+   ],
+   "type": "force",
+   "vector_N": [
+    -13.5,
+    0,
+    0
+   ]
+  }
+ ],
+ "margin": 2
+}
