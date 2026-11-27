@@ -39,7 +39,7 @@
     <mesh name="screw_M3x8_DIN912" content_type="model/stl" file="twinarm_screw_M3x8_DIN912.stl"/>
     <mesh name="selftap_M3x8_PAN" content_type="model/stl" file="twinarm_selftap_M3x8_PAN.stl"/>
     <mesh name="screw_M3x10_DIN912" content_type="model/stl" file="twinarm_screw_M3x10_DIN912.stl"/>
-    <mesh name="screw_M5x16_masa" content_type="model/stl" file="twinarm_screw_M5x16_masa.stl"/>
+    <mesh name="screw_M5x16_table" content_type="model/stl" file="twinarm_screw_M5x16_table.stl"/>
     <mesh name="harness_base" content_type="model/stl" file="twinarm_harness_base.stl"/>
     <mesh name="turntable" content_type="model/stl" file="twinarm_turntable.stl"/>
     <mesh name="horn" content_type="model/stl" file="twinarm_horn.stl"/>
@@ -119,28 +119,28 @@
       <geom name="selftap_M3x8_PAN_2" class="visual" pos="0.03475 0.005 0.0335" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a" mesh="selftap_M3x8_PAN"/>
       <geom name="insert_M3x5.75_3" class="visual" pos="0.0282843 0.0282843 0.011875" quat="0 1 0 0" type="mesh" material="Brass_C360_HALF_HARD" mesh="insert_M3x5.75"/>
       <geom name="screw_M3x10_DIN912" class="visual" pos="0.0282843 0.0282843 0.0033" quat="0 1 0 0" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a" mesh="screw_M3x10_DIN912"/>
-      <geom name="screw_M5x16_masa" class="visual" pos="0.046669 0.046669 0.0055" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a" mesh="screw_M5x16_masa"/>
+      <geom name="screw_M5x16_table" class="visual" pos="0.046669 0.046669 0.0055" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a" mesh="screw_M5x16_table"/>
       <geom name="insert_M3x5.75_4" class="visual" pos="-0.0282843 0.0282843 0.011875" quat="0 1 0 0" type="mesh" material="Brass_C360_HALF_HARD" mesh="insert_M3x5.75"/>
       <geom name="screw_M3x10_DIN912_2" class="visual" pos="-0.0282843 0.0282843 0.0033" quat="0 1 0 0" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a" mesh="screw_M3x10_DIN912"/>
-      <geom name="screw_M5x16_masa_2" class="visual" pos="-0.046669 0.046669 0.0055" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a" mesh="screw_M5x16_masa"/>
+      <geom name="screw_M5x16_table_2" class="visual" pos="-0.046669 0.046669 0.0055" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a" mesh="screw_M5x16_table"/>
       <geom name="insert_M3x5.75_5" class="visual" pos="-0.0282843 -0.0282843 0.011875" quat="0 1 0 0" type="mesh" material="Brass_C360_HALF_HARD" mesh="insert_M3x5.75"/>
       <geom name="screw_M3x10_DIN912_3" class="visual" pos="-0.0282843 -0.0282843 0.0033" quat="0 1 0 0" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a" mesh="screw_M3x10_DIN912"/>
-      <geom name="screw_M5x16_masa_3" class="visual" pos="-0.046669 -0.046669 0.0055" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a" mesh="screw_M5x16_masa"/>
+      <geom name="screw_M5x16_table_3" class="visual" pos="-0.046669 -0.046669 0.0055" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a" mesh="screw_M5x16_table"/>
       <geom name="insert_M3x5.75_6" class="visual" pos="0.0282843 -0.0282843 0.011875" quat="0 1 0 0" type="mesh" material="Brass_C360_HALF_HARD" mesh="insert_M3x5.75"/>
       <geom name="screw_M3x10_DIN912_4" class="visual" pos="0.0282843 -0.0282843 0.0033" quat="0 1 0 0" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a" mesh="screw_M3x10_DIN912"/>
-      <geom name="screw_M5x16_masa_4" class="visual" pos="0.046669 -0.046669 0.0055" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a" mesh="screw_M5x16_masa"/>
+      <geom name="screw_M5x16_table_4" class="visual" pos="0.046669 -0.046669 0.0055" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a" mesh="screw_M5x16_table"/>
       <geom name="harness_base" class="visual" quat="1 0 0 0" type="mesh" material="PE_HDPE" mesh="harness_base"/>
       <geom name="base_plate_collision" class="collision" quat="1 0 0 0" type="mesh" mesh="base_plate"/>
       <geom name="base_housing_collision" class="collision" pos="-1.21431e-17 1.51788e-18 -4.71845e-16" quat="1 0 0 0" type="mesh" mesh="base_housing"/>
       <body name="shoulder_link">
-        <inertial pos="-1.0037e-05 -0.00122514 0.107343" quat="0.706349 0.00998062 -0.707704 -0.011263" mass="0.201305" diaginertia="0.000111813 0.00018706 0.000197248"/>
+        <inertial pos="-1.43562e-05 -0.00122301 0.107344" quat="0.706356 0.00982123 -0.707696 -0.0114311" mass="0.201224" diaginertia="0.000111801 0.00018705 0.000197244"/>
         <joint name="base_yaw" range="-1.74533 1.74533" actuatorfrcrange="-1.96 1.96" armature="0.004" damping="0.299669" frictionloss="0.04"/>
         <geom name="turntable" class="visual" pos="9.03361e-18 4.87891e-18 -9.99201e-16" quat="1 0 0 0" type="mesh" material="PETG_GENERIC" mesh="turntable"/>
         <geom name="horn" class="visual" pos="2.22305e-24 0 -7.49401e-16" quat="1 0 0 0" type="mesh" material="Nylon_PA12_f2f2f2" mesh="horn"/>
         <geom name="setscrew_M3x10" class="visual" pos="0.0053033 0.0053033 0.05075" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_3c3f44" mesh="setscrew_M3x10"/>
         <geom name="setscrew_M3x10_2" class="visual" pos="-0.0053033 -0.0053033 0.05075" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_3c3f44" mesh="setscrew_M3x10"/>
         <geom name="hub_collar" class="visual" pos="1.24683e-18 5.79026e-24 -6.52256e-16" quat="1 0 0 0" type="mesh" material="PETG_GENERIC" mesh="hub_collar"/>
-        <geom name="shoulder_tower" class="visual" pos="7.04731e-19 5.20417e-17 -6.38378e-16" quat="1 0 0 0" type="mesh" material="PETG_GENERIC" mesh="shoulder_tower"/>
+        <geom name="shoulder_tower" class="visual" pos="1.0842e-19 5.20417e-17 -6.38378e-16" quat="1 0 0 0" type="mesh" material="PETG_GENERIC" mesh="shoulder_tower"/>
         <geom name="body_2" class="visual" type="mesh" material="Nylon_PA12" mesh="body_2"/>
         <geom name="ds18b20_2" class="visual" pos="0.0118 -0.0038 0.118" type="mesh" material="ABS_GENERIC" mesh="ds18b20_2"/>
         <geom name="stub_retainer" class="visual" pos="0 4.02456e-16 -1.44329e-15" quat="1 0 0 0" type="mesh" material="PETG_GENERIC" mesh="stub_retainer"/>
@@ -164,10 +164,10 @@
         <geom name="selftap_M3x8_PAN_4" class="visual" pos="0.005 0.0144 0.10125" quat="0.707107 -0.707107 0 0" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a" mesh="selftap_M3x8_PAN"/>
         <geom name="selftap_M2x6_PAN" class="visual" pos="-0.00825 -0.0385 0.136" quat="0.707107 0.707107 0 0" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a" mesh="selftap_M2x6_PAN"/>
         <geom name="selftap_M2x6_PAN_2" class="visual" pos="0.00825 -0.0385 0.136" quat="0.707107 0.707107 0 0" type="mesh" material="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a" mesh="selftap_M2x6_PAN"/>
-        <geom name="harness_shoulder" class="visual" type="mesh" material="PE_HDPE" mesh="harness_shoulder"/>
-        <geom name="shoulder_tower_collision" class="collision" pos="7.04731e-19 5.20417e-17 -6.38378e-16" quat="1 0 0 0" type="mesh" mesh="shoulder_tower"/>
+        <geom name="harness_shoulder" class="visual" quat="1 0 0 0" type="mesh" material="PE_HDPE" mesh="harness_shoulder"/>
+        <geom name="shoulder_tower_collision" class="collision" pos="1.0842e-19 5.20417e-17 -6.38378e-16" quat="1 0 0 0" type="mesh" mesh="shoulder_tower"/>
         <body name="upper_arm_link" pos="0 0 0.136" quat="0.5 -0.5 -0.5 -0.5">
-          <inertial pos="0.0627515 -2.86981e-05 -0.00575488" quat="0.703028 0.703928 -0.0716188 0.0714658" mass="0.237227" diaginertia="0.000126001 0.000448658 0.000528707"/>
+          <inertial pos="0.0627458 -3.23694e-05 -0.00575463" quat="0.703043 0.703913 -0.0716388 0.0714576" mass="0.237145" diaginertia="0.000125991 0.000448627 0.000528683"/>
           <joint name="shoulder" range="-1.93732 1.93732" actuatorfrcrange="-3.14 3.14" armature="0.006" damping="0.359603" frictionloss="0.06"/>
           <geom name="upper_arm" class="visual" pos="-0.136 0 0" quat="0.5 0.5 0.5 0.5" type="mesh" material="PETG_GENERIC_ff6a13" mesh="upper_arm"/>
           <geom name="horn_2" class="visual" pos="-0.136 0 0" quat="0.5 0.5 0.5 0.5" type="mesh" material="Alu_G6061_T6" mesh="horn_2"/>
@@ -193,7 +193,7 @@
           <geom name="harness_upper_arm" class="visual" pos="-0.136 0 0" quat="0.5 0.5 0.5 0.5" type="mesh" material="PE_HDPE" mesh="harness_upper_arm"/>
           <geom name="upper_arm_collision" class="collision" pos="-0.136 0 0" quat="0.5 0.5 0.5 0.5" type="mesh" mesh="upper_arm"/>
           <body name="forearm_link" pos="0.11 0 0">
-            <inertial pos="0.0616566 -2.97411e-05 -0.00592093" quat="0.703129 0.704048 -0.070535 0.0703611" mass="0.228907" diaginertia="0.00012402 0.000434905 0.000513455"/>
+            <inertial pos="0.0616503 -3.35462e-05 -0.00592073" quat="0.703144 0.704032 -0.070557 0.0703522" mass="0.228826" diaginertia="0.000124009 0.00043487 0.000513428"/>
             <joint name="elbow" range="-1.93732 1.93732" actuatorfrcrange="-2.7 2.7" armature="0.005" damping="0.412045" frictionloss="0.05"/>
             <geom name="forearm" class="visual" pos="-0.246 0 0" quat="0.5 0.5 0.5 0.5" type="mesh" material="PETG_GENERIC_ff6a13" mesh="forearm"/>
             <geom name="horn_3" class="visual" pos="-0.246 0 0" quat="0.5 0.5 0.5 0.5" type="mesh" material="Alu_G6061_T6" mesh="horn_3"/>
@@ -242,7 +242,7 @@
               <geom name="harness_wrist" class="visual" pos="-0.356 0 0" quat="0.5 0.5 0.5 0.5" type="mesh" material="PE_HDPE" mesh="harness_wrist"/>
               <geom name="wrist_collision" class="collision" pos="-0.356 0 0" quat="0.5 0.5 0.5 0.5" type="mesh" mesh="wrist"/>
               <body name="gripper_link" pos="0.086 0 0" quat="0.5 0.5 0.5 0.5">
-                <inertial pos="0.00188865 -3.60492e-05 0.0194542" quat="0.705033 0.70907 -0.00164308 -0.0120601" mass="0.0773761" diaginertia="4.42331e-05 6.72645e-05 6.89482e-05"/>
+                <inertial pos="0.00187937 -3.68001e-05 0.0194647" quat="0.70624 0.707869 -0.00183579 -0.0119829" mass="0.0773433" diaginertia="4.42257e-05 6.72548e-05 6.89285e-05"/>
                 <joint name="wrist_roll" range="-1.74533 1.74533" actuatorfrcrange="-1.96 1.96" armature="0.004" damping="0.299669" frictionloss="0.04"/>
                 <geom name="gripper_palm" class="visual" pos="0 0 -0.442" quat="1 0 0 0" type="mesh" material="PETG_GENERIC" mesh="gripper_palm"/>
                 <geom name="horn_5" class="visual" pos="0 0 -0.442" quat="1 0 0 0" type="mesh" material="Nylon_PA12_f2f2f2" mesh="horn_5"/>
@@ -330,11 +330,11 @@
   </equality>
 
   <actuator>
-    <general name="servo_base_yaw" joint="base_yaw" ctrlrange="-1.5708 1.5708" ctrllimited="true" forcelimited="true" forcerange="-1.96133 1.96133" input="pos" biastype="affine" gainprm="37.4586" biasprm="0 -37.4586 -0.83194"/>
-    <general name="servo_shoulder" joint="shoulder" ctrlrange="-1.22173 1.8326" ctrllimited="true" forcelimited="true" forcerange="-3.13813 3.13813" input="pos" biastype="affine" gainprm="59.9338" biasprm="0 -59.9338 -2.06675"/>
-    <general name="servo_elbow" joint="elbow" ctrlrange="-1.0472 1.8326" ctrllimited="true" forcelimited="true" forcerange="-2.69683 2.69683" input="pos" biastype="affine" gainprm="51.5056" biasprm="0 -51.5056 -1.21729"/>
-    <general name="servo_wrist_pitch" joint="wrist_pitch" ctrlrange="-1.0472 1.65806" ctrllimited="true" forcelimited="true" forcerange="-1.96133 1.96133" input="pos" biastype="affine" gainprm="37.4586" biasprm="0 -37.4586 -0.841365"/>
-    <general name="servo_wrist_roll" joint="wrist_roll" ctrlrange="-1.5708 1.5708" ctrllimited="true" forcelimited="true" forcerange="-1.96133 1.96133" input="pos" biastype="affine" gainprm="37.4586" biasprm="0 -37.4586 -0.781296"/>
+    <general name="servo_base_yaw" joint="base_yaw" ctrlrange="-1.5708 1.5708" ctrllimited="true" forcelimited="true" forcerange="-1.96133 1.96133" input="pos" biastype="affine" gainprm="37.4586" biasprm="0 -37.4586 -0.831936"/>
+    <general name="servo_shoulder" joint="shoulder" ctrlrange="-1.22173 1.8326" ctrllimited="true" forcelimited="true" forcerange="-3.13813 3.13813" input="pos" biastype="affine" gainprm="59.9338" biasprm="0 -59.9338 -2.06666"/>
+    <general name="servo_elbow" joint="elbow" ctrlrange="-1.0472 1.8326" ctrllimited="true" forcelimited="true" forcerange="-2.69683 2.69683" input="pos" biastype="affine" gainprm="51.5056" biasprm="0 -51.5056 -1.21728"/>
+    <general name="servo_wrist_pitch" joint="wrist_pitch" ctrlrange="-1.0472 1.65806" ctrllimited="true" forcelimited="true" forcerange="-1.96133 1.96133" input="pos" biastype="affine" gainprm="37.4586" biasprm="0 -37.4586 -0.841357"/>
+    <general name="servo_wrist_roll" joint="wrist_roll" ctrlrange="-1.5708 1.5708" ctrllimited="true" forcelimited="true" forcerange="-1.96133 1.96133" input="pos" biastype="affine" gainprm="37.4586" biasprm="0 -37.4586 -0.781295"/>
     <general name="servo_gripper_pinion" joint="gripper_pinion" ctrlrange="-0.125664 1.70767" ctrllimited="true" forcelimited="true" forcerange="-0.215746 0.215746" input="pos" biastype="affine" gainprm="4.12045" biasprm="0 -4.12045 -0.121808"/>
   </actuator>
 

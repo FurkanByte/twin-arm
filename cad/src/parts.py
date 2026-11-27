@@ -245,6 +245,7 @@ def servo_block_solid(z, z_bottom):
 
 
 TO92_GROOVE = (SERVO_W / 2 + FIT, SERVO_W / 2 + FIT + TO92[1] + 0.7)   # x range (body +X side)
+SENSOR_WIRE = 2.6        # square channel for the 3-wire 1-Wire lead (3 x 26 AWG)
 DUCT_Y = (BLOCK_Y0 + 1.5, SERVO_Y0 - FIT - 1.5)   # internal cable duct: in the servo block's -Y wall
 
 
@@ -260,6 +261,11 @@ def servo_pocket(z, y_open=CLEVIS_HALF + 1):
     pocket += box(-cw, cw, SERVO_Y0 - FIT, y_open, z - B - 4.0, z - B)          # insertion channel
     pocket += box(-DUCT_HX, DUCT_HX, DUCT_Y[1] - 0.5, SERVO_Y0 + 9.0, z - B - 4.0, z - B)   # cable: pocket -> internal duct
     pocket += box(TO92_GROOVE[0], TO92_GROOVE[1], SERVO_Y0 + 9.0, y_open, z - 22.0, z - 14.0)
+    # DS18B20 wires: down the servo's +X side, then under the servo end into the cable slot -> duct
+    x0, x1 = TO92_GROOVE[0], TO92_GROOVE[0] + SENSOR_WIRE
+    pocket += box(x0, x1, SERVO_Y0 + 9.0, SERVO_Y0 + 9.0 + SENSOR_WIRE, z - B - 4.0, z - 14.0)
+    pocket += box(DUCT_HX - 1.0, x1, SERVO_Y0 + 6.0, SERVO_Y0 + 9.0 + SENSOR_WIRE, z - B - 4.0,
+                  z - B - 4.0 + SENSOR_WIRE)
     return pocket
 
 
@@ -634,7 +640,10 @@ def gripper_palm():
     body -= box(MG_X1 - 0.5, GRIP_HOLE[0] + 3.0, -cw, cw, G_FLOOR - 0.01, G_FLOOR + 3.0)   # floor channel
     body -= zcyl(3.5, H - 1, G_FLOOR + 0.1, x=GRIP_HOLE[0], y=GRIP_HOLE[1])             # drop into chamber
     body -= box(2.5, 8.5, MG_W / 2 + FIT, MG_W / 2 + FIT + TO92[1] + 0.7, G_FLOOR + 3, RACK_Z0)
-    body -= box(4.0, 7.0, MG_W / 2 + FIT, LOWER[3] - 2.0, G_FLOOR + 3, RACK_Z0 - 7)   # sensor cable slot
+    # DS18B20 wires: along the servo's +Y side at floor level, then into the MG90S floor channel
+    yw0, yw1 = MG_W / 2 + FIT, MG_W / 2 + FIT + SENSOR_WIRE
+    body -= box(4.0, MG_X1 + FIT + 2.4, yw0, yw1, G_FLOOR, G_FLOOR + 3.2)
+    body -= box(MG_X1 + FIT, MG_X1 + FIT + 2.4, cw - 0.3, yw1, G_FLOOR, G_FLOOR + 3.2)
     body -= zcyl(MG_HORN_D / 2 + 1.0, G_SERVO_TOP, RACK_Z0 + 0.1)         # horn clearance
     body -= zcyl(PINION_R + GEAR_M * (1 + PROFILE_SHIFT) + 0.5, G_HORN_TOP - 0.5, RACK_Z0 + 0.1)
     body -= box(-CHANNEL_HX, CHANNEL_HX, -CHANNEL_HY, CHANNEL_HY, RACK_Z0, COVER_Z0 + 1)

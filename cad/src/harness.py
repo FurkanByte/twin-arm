@@ -82,6 +82,15 @@ def _pitch_lead(z_axis):
     return ([(0, yc, zc), (0, YD, zc)], 0.95)
 
 
+def _sensor_lead(z_axis):
+    """DS18B20 lead of a pitch servo: down the servo's side channel, under the servo end into the
+    cable slot, where it joins the servo cable."""
+    x, y = P.TO92_GROOVE[0] + 1.3, SERVO_Y0 + 10.3
+    zl = z_axis - P.B - 4.0 + 1.3
+    return ([(x, y, z_axis - 20.4), (x, y, zl), (P.DUCT_HX - 1.0 + 0.5, SERVO_Y0 + 7.5, zl),
+             (1.0, SERVO_Y0 + CABLE_Z + CABLE_T / 2, z_axis - P.B - 3.0)], 0.55)
+
+
 def _parent(z_axis, z_from):
     """From the upper link's internal duct to the junction point on the joint axis."""
     return [(0, YD, z_from), (0, YD, z_axis), (0, YJ, z_axis)]
@@ -99,12 +108,12 @@ def shoulder_harness():
     run = _parent(z, P.TT_Z1 + 2)[::-1]                       # from the axis down along the duct
     down = [(0, YD, P.TT_Z1 + 2), (0, YD, P.TT_Z1 - 1.0), (P.TT_HOLE[0], P.TT_HOLE[1], Z_TURNTABLE - 0.5),
             (P.TT_HOLE[0], P.TT_HOLE[1], Z_BASE_TOP + 1.0)]     # via slanted duct to cable chamber
-    return [cable("harness_shoulder", [run, down, _pitch_lead(z)], R_TOWER)]
+    return [cable("harness_shoulder", [run, down, _pitch_lead(z), _sensor_lead(z)], R_TOWER)]
 
 
 def arm_harness(label, z_prox, z_dist, r):
     run = _child(z_prox)[:-1] + _parent(z_dist, z_prox + BRIDGE_GAP + P.BRIDGE_T + 6)
-    return [cable(label, [run, _pitch_lead(z_dist)], r)]
+    return [cable(label, [run, _pitch_lead(z_dist), _sensor_lead(z_dist)], r)]
 
 
 def wrist_harness():
@@ -124,7 +133,10 @@ def gripper_harness():
     xl = P.MG_X1 + (P.MG_CABLE_T + 0.2) / 2                    # MG90S cable in its channel
     lead = ([(xl, 0, P.G_FLOOR + 1.9), (xl, 0, zc), (P.GRIP_HOLE[0], 0, zc)], 0.6)
     down = ([(P.GRIP_HOLE[0], 0, zc), (P.GRIP_HOLE[0], 0, Z_ROLL_HORN - 1.0)], 1.2)
-    return [cable("harness_gripper", [lead, down], R_GRIP)]
+    ys, xe = P.MG_W / 2 + P.FIT + P.SENSOR_WIRE / 2, P.MG_X1 + P.FIT + 1.8      # DS18B20 lead
+    sensor = ([(5.5, ys, P.G_FLOOR + 7.9), (5.5, ys, zc), (xe, ys, zc), (xe, 1.0, zc),
+               (P.GRIP_HOLE[0], 0, zc)], 0.55)
+    return [cable("harness_gripper", [lead, down, sensor], R_GRIP)]
 
 
 def base_harness():

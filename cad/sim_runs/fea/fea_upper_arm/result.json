@@ -2,17 +2,17 @@
  "ok": true,
  "path": "03a699c5-1f52-5f7c-b298-ef2fc233bf9e",
  "findings": [],
- "summary": "solved upper_arm/upper_arm of 03a699c5-1f52-5f7c-b298-ef2fc233bf9e: peak 1.6256 MPa, safety factor 15.379",
+ "summary": "solved upper_arm/upper_arm of 03a699c5-1f52-5f7c-b298-ef2fc233bf9e: peak 1.6504 MPa, safety factor 15.148",
  "measurements": {
-  "max_von_mises_MPa": 1.6256,
-  "max_von_mises_gauss_MPa": 1.9695,
+  "max_von_mises_MPa": 1.6504,
+  "max_von_mises_gauss_MPa": 2.004,
   "max_von_mises_at_mm": [
    10.579,
    -29.15,
    250.759
   ],
   "yield_MPa": 25.0,
-  "max_displacement_mm": 0.027226,
+  "max_displacement_mm": 0.027266,
   "max_displacement_at_mm": [
    18.525,
    11.9,
@@ -25,19 +25,19 @@
   ],
   "reaction_force_N": [
    -7.35,
-   -0.0,
-   0.0
+   0.0,
+   -0.0
   ],
   "deformation_scale": 310.0,
-  "safety_factor": 15.379,
+  "safety_factor": 15.148,
   "checks": [
    {
     "kind": "stress",
     "label": "Strength",
-    "value": 1.6256,
+    "value": 1.6504,
     "limit": 25.0,
     "unit": "MPa",
-    "ratio": 0.065024,
+    "ratio": 0.066015,
     "close_at": 0.5,
     "margin": 2.0,
     "status": "passes",
@@ -52,19 +52,19 @@
    }
   ],
   "mesh": {
-   "elements": 21879,
+   "elements": 22032,
    "straightened": 6,
-   "nodes": 36450,
-   "dofs": 109350,
+   "nodes": 36755,
+   "dofs": 110265,
    "size_mm": 4.2738,
    "order": 2,
    "mesher": "netgen",
    "solver": "calculix 2.23 (C3D10)"
   },
   "timings": {
-   "mesh_s": 9.934,
-   "solve_s": 20.291,
-   "stress_s": 0.063
+   "mesh_s": 5.813,
+   "solve_s": 21.377,
+   "stress_s": 0.072
   },
   "study": {
    "material": {
@@ -130,8 +130,8 @@
     "type": "fixed",
     "reaction_N": [
      -7.35,
-     -0.0,
-     0.0
+     0.0,
+     -0.0
     ]
    }
   ],

@@ -27,14 +27,11 @@
   <material name="AlloySteel_G4140_QUENCHED_TEMPERED_3c3f44">
     <color rgba="0.235293571 0.247059922 0.266665669 1"/>
   </material>
-  <material name="PETG_GENERIC_e6e6e2">
-    <color rgba="0.901960814 0.901960814 0.886274765 1"/>
+  <material name="PETG_GENERIC_ff6a13">
+    <color rgba="1 0.415685634 0.0745090516 1"/>
   </material>
   <material name="Alu_G6061_T6">
     <color rgba="0.721568504 0.737254601 0.760784006 1"/>
-  </material>
-  <material name="PETG_GENERIC_ff6a13">
-    <color rgba="1 0.415685634 0.0745090516 1"/>
   </material>
   <material name="Rubber_GENERIC">
     <color rgba="0.227449838 0.227449838 0.227449838 1"/>
@@ -152,10 +149,10 @@
       </geometry>
       <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
     </visual>
-    <visual name="screw_M5x16_masa">
+    <visual name="screw_M5x16_table">
       <origin xyz="0.0466690476 0.0466690476 0.0055" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/twinarm_screw_M5x16_masa.stl" scale="1 1 1"/>
+        <mesh filename="meshes/twinarm_screw_M5x16_table.stl" scale="1 1 1"/>
       </geometry>
       <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
     </visual>
@@ -173,10 +170,10 @@
       </geometry>
       <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
     </visual>
-    <visual name="screw_M5x16_masa_2">
+    <visual name="screw_M5x16_table_2">
       <origin xyz="-0.0466690476 0.0466690476 0.0055" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/twinarm_screw_M5x16_masa.stl" scale="1 1 1"/>
+        <mesh filename="meshes/twinarm_screw_M5x16_table.stl" scale="1 1 1"/>
       </geometry>
       <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
     </visual>
@@ -194,10 +191,10 @@
       </geometry>
       <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
     </visual>
-    <visual name="screw_M5x16_masa_3">
+    <visual name="screw_M5x16_table_3">
       <origin xyz="-0.0466690476 -0.0466690476 0.0055" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/twinarm_screw_M5x16_masa.stl" scale="1 1 1"/>
+        <mesh filename="meshes/twinarm_screw_M5x16_table.stl" scale="1 1 1"/>
       </geometry>
       <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
     </visual>
@@ -215,10 +212,10 @@
       </geometry>
       <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
     </visual>
-    <visual name="screw_M5x16_masa_4">
+    <visual name="screw_M5x16_table_4">
       <origin xyz="0.0466690476 -0.0466690476 0.0055" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/twinarm_screw_M5x16_masa.stl" scale="1 1 1"/>
+        <mesh filename="meshes/twinarm_screw_M5x16_table.stl" scale="1 1 1"/>
       </geometry>
       <material name="AlloySteel_G4140_QUENCHED_TEMPERED_2a2a2a"/>
     </visual>
@@ -313,10 +310,10 @@
         <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
       </geometry>
     </collision>
-    <collision name="screw_M5x16_masa">
+    <collision name="screw_M5x16_table">
       <origin xyz="0.0466690476 0.0466690476 0.0055" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/twinarm_screw_M5x16_masa.stl" scale="1 1 1"/>
+        <mesh filename="meshes/twinarm_screw_M5x16_table.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <collision name="insert_M3x5_75_4">
@@ -331,10 +328,10 @@
         <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
       </geometry>
     </collision>
-    <collision name="screw_M5x16_masa_2">
+    <collision name="screw_M5x16_table_2">
       <origin xyz="-0.0466690476 0.0466690476 0.0055" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/twinarm_screw_M5x16_masa.stl" scale="1 1 1"/>
+        <mesh filename="meshes/twinarm_screw_M5x16_table.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <collision name="insert_M3x5_75_5">
@@ -349,10 +346,10 @@
         <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
       </geometry>
     </collision>
-    <collision name="screw_M5x16_masa_3">
+    <collision name="screw_M5x16_table_3">
       <origin xyz="-0.0466690476 -0.0466690476 0.0055" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/twinarm_screw_M5x16_masa.stl" scale="1 1 1"/>
+        <mesh filename="meshes/twinarm_screw_M5x16_table.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <collision name="insert_M3x5_75_6">
@@ -367,10 +364,10 @@
         <mesh filename="meshes/twinarm_screw_M3x10_DIN912.stl" scale="1 1 1"/>
       </geometry>
     </collision>
-    <collision name="screw_M5x16_masa_4">
+    <collision name="screw_M5x16_table_4">
       <origin xyz="0.0466690476 -0.0466690476 0.0055" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/twinarm_screw_M5x16_masa.stl" scale="1 1 1"/>
+        <mesh filename="meshes/twinarm_screw_M5x16_table.stl" scale="1 1 1"/>
       </geometry>
     </collision>
     <collision name="harness_base">
@@ -391,9 +388,9 @@
 
   <link name="shoulder_link">
     <inertial>
-      <origin xyz="-1.00370144e-05 -0.00122513583 0.107342757" rpy="0 0 0"/>
-      <mass value="0.201304885"/>
-      <inertia ixx="0.000197247527" ixy="-2.31610921e-08" ixz="1.6549109e-07" iyy="0.000186992604" iyz="2.25920782e-06" izz="0.000111881305"/>
+      <origin xyz="-1.43561673e-05 -0.00122301074 0.107343527" rpy="0 0 0"/>
+      <mass value="0.201223533"/>
+      <inertia ixx="0.000197243999" ixy="-2.78571145e-08" ixz="1.63989614e-07" iyy="0.000186982109" iyz="2.26013656e-06" izz="0.000111869565"/>
     </inertial>
     <visual name="turntable">
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -797,16 +794,16 @@
 
   <link name="upper_arm_link">
     <inertial>
-      <origin xyz="0.0627515278 -2.86980543e-05 -0.00575488148" rpy="0 0 0"/>
-      <mass value="0.237226758"/>
-      <inertia ixx="0.000139077892" ixy="1.15662733e-07" ixz="-6.36254271e-05" iyy="0.000528706495" iyz="1.25466865e-07" izz="0.000435582169"/>
+      <origin xyz="0.0627458032 -3.23693601e-05 -0.00575463221" rpy="0 0 0"/>
+      <mass value="0.237145406"/>
+      <inertia ixx="0.000139068325" ixy="1.30350164e-07" ixz="-6.36262996e-05" iyy="0.000528682807" iyz="1.2470824e-07" izz="0.000435549275"/>
     </inertial>
     <visual name="upper_arm">
       <origin xyz="-0.136 0 0" rpy="1.57079633 0 1.57079633"/>
       <geometry>
         <mesh filename="meshes/twinarm_upper_arm.stl" scale="1 1 1"/>
       </geometry>
-      <material name="PETG_GENERIC_e6e6e2"/>
+      <material name="PETG_GENERIC_ff6a13"/>
     </visual>
     <visual name="horn">
       <origin xyz="-0.136 0 0" rpy="1.57079633 0 1.57079633"/>
@@ -820,7 +817,7 @@
       <geometry>
         <mesh filename="meshes/twinarm_idler_plate_shoulder.stl" scale="1 1 1"/>
       </geometry>
-      <material name="PETG_GENERIC_e6e6e2"/>
+      <material name="PETG_GENERIC_ff6a13"/>
     </visual>
     <visual name="bearing_6804">
       <origin xyz="-0.136 0 0" rpy="1.57079633 0 1.57079633"/>
@@ -1099,16 +1096,16 @@
 
   <link name="forearm_link">
     <inertial>
-      <origin xyz="0.061656595 -2.97410569e-05 -0.00592092595" rpy="0 0 0"/>
-      <mass value="0.228907338"/>
-      <inertia ixx="0.000136240639" ixy="1.23116972e-07" ixz="-6.04141934e-05" iyy="0.000513454612" iyz="1.26597289e-07" izz="0.000422684492"/>
+      <origin xyz="0.061650273 -3.35462111e-05 -0.00592072665" rpy="0 0 0"/>
+      <mass value="0.228825986"/>
+      <inertia ixx="0.000136231088" ixy="1.38759718e-07" ixz="-6.04148903e-05" iyy="0.000513427869" iyz="1.25983224e-07" izz="0.000422648524"/>
     </inertial>
     <visual name="forearm">
       <origin xyz="-0.246 0 0" rpy="1.57079633 0 1.57079633"/>
       <geometry>
         <mesh filename="meshes/twinarm_forearm.stl" scale="1 1 1"/>
       </geometry>
-      <material name="PETG_GENERIC_e6e6e2"/>
+      <material name="PETG_GENERIC_ff6a13"/>
     </visual>
     <visual name="horn">
       <origin xyz="-0.246 0 0" rpy="1.57079633 0 1.57079633"/>
@@ -1122,7 +1119,7 @@
       <geometry>
         <mesh filename="meshes/twinarm_idler_plate_elbow.stl" scale="1 1 1"/>
       </geometry>
-      <material name="PETG_GENERIC_e6e6e2"/>
+      <material name="PETG_GENERIC_ff6a13"/>
     </visual>
     <visual name="bearing_6804">
       <origin xyz="-0.246 0 0" rpy="1.57079633 0 1.57079633"/>
@@ -1410,7 +1407,7 @@
       <geometry>
         <mesh filename="meshes/twinarm_wrist.stl" scale="1 1 1"/>
       </geometry>
-      <material name="PETG_GENERIC_ff6a13"/>
+      <material name="PETG_GENERIC"/>
     </visual>
     <visual name="horn">
       <origin xyz="-0.356 0 0" rpy="1.57079633 0 1.57079633"/>
@@ -1424,7 +1421,7 @@
       <geometry>
         <mesh filename="meshes/twinarm_idler_plate_wrist.stl" scale="1 1 1"/>
       </geometry>
-      <material name="PETG_GENERIC_ff6a13"/>
+      <material name="PETG_GENERIC"/>
     </visual>
     <visual name="bearing_6804">
       <origin xyz="-0.356 0 0" rpy="1.57079633 0 1.57079633"/>
@@ -1664,16 +1661,16 @@
 
   <link name="gripper_link">
     <inertial>
-      <origin xyz="0.00188864882 -3.6049238e-05 0.019454182" rpy="0 0 0"/>
-      <mass value="0.0773760995"/>
-      <inertia ixx="4.42473633e-05" ixy="4.77888057e-07" ixz="3.40626122e-07" iyy="6.89389459e-05" iyz="2.78460415e-09" izz="6.72595228e-05"/>
+      <origin xyz="0.0018793723 -3.68001293e-05 0.0194646898" rpy="0 0 0"/>
+      <mass value="0.0773432628"/>
+      <inertia ixx="4.42399145e-05" ixy="4.82226273e-07" ixz="3.30936584e-07" iyy="6.89190443e-05" iyz="-2.84170937e-09" izz="6.72500222e-05"/>
     </inertial>
     <visual name="gripper_palm">
       <origin xyz="0 0 -0.442" rpy="0 0 0"/>
       <geometry>
         <mesh filename="meshes/twinarm_gripper_palm.stl" scale="1 1 1"/>
       </geometry>
-      <material name="PETG_GENERIC_ff6a13"/>
+      <material name="PETG_GENERIC"/>
     </visual>
     <visual name="horn">
       <origin xyz="0 0 -0.442" rpy="0 0 0"/>
@@ -1977,7 +1974,7 @@
       <geometry>
         <mesh filename="meshes/twinarm_pinion_m15z16.stl" scale="1 1 1"/>
       </geometry>
-      <material name="PETG_GENERIC_e6e6e2"/>
+      <material name="PETG_GENERIC"/>
     </visual>
     <visual name="horn_screw_M2x4">
       <origin xyz="0 0 0" rpy="3.14159265 0 3.14159265"/>
@@ -2066,7 +2063,7 @@
       <geometry>
         <mesh filename="meshes/twinarm_rack_left.stl" scale="1 1 1"/>
       </geometry>
-      <material name="PETG_GENERIC_e6e6e2"/>
+      <material name="PETG_GENERIC"/>
     </visual>
     <visual name="screw_M3x12_DIN912">
       <origin xyz="-0.0033 0.017525 0.008" rpy="0 -1.57079633 0"/>
@@ -2148,7 +2145,7 @@
       <geometry>
         <mesh filename="meshes/twinarm_rack_left.stl" scale="1 1 1"/>
       </geometry>
-      <material name="PETG_GENERIC_e6e6e2"/>
+      <material name="PETG_GENERIC"/>
     </visual>
     <visual name="screw_M3x12_DIN912">
       <origin xyz="0.0033 -0.017525 0.008" rpy="0 -1.57079633 -3.14159265"/>

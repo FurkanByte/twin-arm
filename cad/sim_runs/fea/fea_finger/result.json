@@ -62,9 +62,9 @@
    "solver": "calculix 2.23 (C3D10)"
   },
   "timings": {
-   "mesh_s": 1.952,
-   "solve_s": 3.809,
-   "stress_s": 0.025
+   "mesh_s": 2.273,
+   "solve_s": 4.646,
+   "stress_s": 0.016
   },
   "study": {
    "material": {

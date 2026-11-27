@@ -1,9 +1,9 @@
 {
  "fea_upper_arm": {
   "load": "elbow torque couple 31 N x 49.5 mm + weight 7.4 N (+X)",
-  "max_von_mises_MPa": 1.6256,
-  "safety_factor": 15.379,
-  "max_displacement_mm": 0.027226,
+  "max_von_mises_MPa": 1.6504,
+  "safety_factor": 15.148,
+  "max_displacement_mm": 0.027266,
   "at_mm": [
    10.579,
    -29.15,
@@ -13,16 +13,16 @@
  },
  "fea_shoulder_tower": {
   "load": "shoulder torque couple 61 N + weight 12.5 N (-Z)",
-  "max_von_mises_MPa": 2.0122,
-  "safety_factor": 12.424,
-  "max_displacement_mm": 0.090995,
+  "max_von_mises_MPa": 2.0871,
+  "safety_factor": 11.978,
+  "max_displacement_mm": 0.09141,
   "at_mm": [
    -6.672,
    -16.4,
    105.85
   ],
   "findings": [
-   "solver_note: 176889 degrees of freedom: expect a slow solve; a larger mesh.size_mm is usually enough"
+   "solver_note: 176247 degrees of freedom: expect a slow solve; a larger mesh.size_mm is usually enough"
   ]
  },
  "fea_finger": {

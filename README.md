@@ -71,8 +71,8 @@ Values used for the analysis:
 
 | Part | Load | Peak stress | Safety factor | Deflection |
 |---|---|---|---|---|
-| Upper arm | elbow servo reaction 1.55 N·m + 7.4 N | 1.6 MPa | 15.4 | 0.03 mm |
-| Shoulder tower (load on the bearing surface of the hollow shaft) | shoulder servo reaction 3 N·m + 12.5 N | 2.0 MPa | 12.4 | 0.09 mm |
+| Upper arm | elbow servo reaction 1.55 N·m + 7.4 N | 1.7 MPa | 15.1 | 0.03 mm |
+| Shoulder tower (load on the bearing surface of the hollow shaft) | shoulder servo reaction 3 N·m + 12.5 N | 2.1 MPa | 12.0 | 0.09 mm |
 | Finger | 13.5 N grip | 4.5 MPa | 5.5 | 0.47 mm |
 | Pinion tooth | 13.5 N tangential | 3.0 MPa | 8.3 | 0.01 mm |
 | Idler/cable cover (6804 seat) | 21 N bearing load | 3.8 MPa | 6.6 | 0.02 mm |
@@ -125,6 +125,13 @@ analysis. The real behavior of the screwed joints is not modeled either.
 - **Wrist rotation (J5):** the wrist body's internal channel runs upward. The harness again coils
   like a clock spring in a cable chamber closed by the skirt of the gripper flange. The MG90S cable
   comes down into this chamber through the channel in the gripper base.
+- **Temperature sensors:** each DS18B20 sits in a printed pocket against its servo's case, and its
+  wires stay inside as well:
+  - **Shoulder, elbow, wrist pitch:** a 2.6 mm channel runs down the servo's side and under the
+    servo end into the cable slot, so the wires join the servo cable.
+  - **Wrist roll:** the pocket opens upward into the cable chamber.
+  - **Gripper:** a floor channel leads into the MG90S cable channel.
+  - **Base:** the sensor sits inside the closed base body.
 - **Wire gauges:** for each servo 2× 20 AWG power, 1× 26 AWG PWM and 2× 30 AWG pot wires; a shared
   3× 26 AWG 1-Wire line. The harness is sleeved in thin PET braid. Kapton tape is wrapped at the
   shaft and chamber passages to protect against chafing.
@@ -149,7 +156,8 @@ The harness is pulled from the tip (gripper) toward the base, before each joint 
 2. Slide the servo into the pocket from +Y; push the flat cable through the slot at the bottom of
    the pocket into the internal channel. Screw the ears in (near ear M3×8 into the inserts, far ear
    M3×8 self-tapping screw).
-3. Glue the DS18B20 (TO-92) into the pocket next to the servo with thermal adhesive; route its 3 wires into the channel as well.
+3. Glue the DS18B20 (TO-92) into the pocket next to the servo with thermal adhesive. Its 3 wires run down the
+   2.6 mm channel along the servo's side and under the servo end into the cable slot, next to the servo cable.
 4. Pass the next link's harness through the channel and out through the bore of the hollow shaft.
 5. Set the servo to its calibration angle (below). Screw the arm horn to the horn cheek of the next
    link (M3×10). Push the cheek and horn onto the shaft and tighten the center screw (M3×8) through
