@@ -244,7 +244,7 @@ def build_parts_list(doc, M):
         r = csv.reader(f, delimiter=";")
         next(r)
         for row in r:
-            if len(row) < 9 or not row[0] or row[0] == "Filament":
+            if len(row) < 5 or not row[0] or row[0] == "Filament":
                 continue
             rows.append((f"S{n:02d}", row[1][:70], row[3], row[4][:34], row[0]))
             n += 1
@@ -715,7 +715,7 @@ def parts_list_pages(doc, rows, total, first_idx):
             "title": f"TwinArm-5 — Parts list ({k})", "document_type": "Parts list",
             "drawing_number": f"TA5-L0{k}", "scale": "—", "sheet_number": f"{first_idx + k - 1} / {total}",
             "part_material": "—", "supplementary_title_1": "P: printed part · S: purchased",
-            "supplementary_title_2": "Prices and links: BOM.md / BOM.csv"})
+            "supplementary_title_2": "Suppliers and links: bom/BOM.md"})
         chunk = [hdr] + body[start:start + per]
         sym = doc.addObject("TechDraw::DrawViewSymbol", f"List_{k}")
         sym.Symbol = svg_table(chunk, widths, row_h=4.4)
@@ -744,7 +744,7 @@ def list_rows(M):
         r = csv.reader(f, delimiter=";")
         next(r)
         for row in r:
-            if len(row) < 9 or not row[0] or row[0] == "Filament":
+            if len(row) < 5 or not row[0] or row[0] == "Filament":
                 continue
             rows.append((f"S{n:02d}", row[1], row[3], row[4], row[0]))
             n += 1

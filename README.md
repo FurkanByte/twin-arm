@@ -232,27 +232,19 @@ The full list is in **[bom/BOM.md](bom/BOM.md)** (and [bom/BOM.csv](bom/BOM.csv)
 by `bom/bom.py` **by counting from the CAD assembly**: every screw, insert, nut, bearing,
 sensor and module is counted individually. Cables, solder and similar consumables that are not
 drawn in CAD are added separately. Cable quantities are calculated from the actual length of the
-internal cable paths. Prices are in TL including VAT. Stock was checked on the product pages on
-2026-11-13; check again before ordering.
+internal cable paths. Each line names a supplier in Turkey with a product link and its stock status;
+check availability again before ordering.
 
-| Group | TL (incl. VAT) |
+| Group | Contents |
 |---|---|
-| Servos (RDS3235, DS3230MG, 3× DS3218MG, MG90S) + 3 aluminum horns | 9,136 |
-| Electronics (ESP32-S3, 3× ADS1115, 6× INA226, 6× DS18B20, 2× XL4016, PSU, emergency stop, connectors…) | 4,533 |
-| Filament (PETG, 2 colors: dark anthracite + orange, ~1.1 kg) | 1,417 |
-| Cable (internal harness + arm → box) | 1,340 |
-| Fasteners (inserts, screws, set screws, self-tapping screws…) | 1,226 |
-| Bearings (6006ZZ, 51107, 3× 6804-2RS) | 477 |
-| Consumables (solder, thermal adhesive, threadlocker…) | 285 |
-| Mechanical (rubber pads) | 50 |
-| **Grand total** | **18,464** |
-| Part with prices verified on the product page | 14,272 |
-| Recommended budget with a 10% spare/shipping margin | **20,310** |
-
-Cost reduction (2026-11-17): the sensors and modules (INA226, ADS1115, ESP32-S3, DS18B20, XL4016)
-are bought from direnc.net (same parts, ~1,300 TL cheaper; free shipping above 1,500 TL in a single
-order). The prints were reduced to two colors (2 spools). The servos make up about 50% of the total.
-Items marked "verify" (mostly hardware and connectors) have estimated prices.
+| Servos | RDS3235, DS3230MG, 3× DS3218MG, MG90S + 3 aluminum horns |
+| Electronics | ESP32-S3, 3× ADS1115, 6× INA226, 6× DS18B20, 2× XL4016, PSU, emergency stop, connectors… |
+| Filament | PETG, 2 colors (dark anthracite + orange), ~1.1 kg |
+| Cable | internal harness + arm → box |
+| Fasteners | inserts, screws, set screws, self-tapping screws… |
+| Bearings | 6006ZZ, 51107, 3× 6804-2RS |
+| Consumables | solder, thermal adhesive, threadlocker… |
+| Mechanical | rubber pads |
 
 ## Print list
 
