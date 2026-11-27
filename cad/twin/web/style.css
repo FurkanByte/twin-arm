@@ -175,6 +175,14 @@ select { background: var(--card2); border: 1px solid var(--line); border-radius:
 .log li.l2 span { color: #ff8a80; }
 .log:empty::after { content: "No events yet."; color: var(--dim); }
 
+/* --- torque limiter -------------------------------------------------------------------------- */
+.lim-badge { background: rgba(245, 184, 28, .14); border: 1px solid #6b5413; color: #ffd76a; border-radius: 10px;
+  padding: 6px 10px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.lim-badge.off { background: rgba(229, 50, 43, .14); border-color: #7a2420; color: #ff8a80; }
+.check { display: flex; align-items: center; gap: 6px; font-weight: 600; cursor: pointer; }
+.check input { accent-color: var(--accent); width: 16px; height: 16px; }
+.lim-state { margin: 10px 0 0; font-size: 13px; font-variant-numeric: tabular-nums; }
+
 /* --- phone / narrow screen ----------------------------------------------------------------- */
 @media (max-width: 900px) {
   .layout, body[data-view="advanced"] .layout { display: block; height: auto; }

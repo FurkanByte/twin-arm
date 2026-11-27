@@ -50,6 +50,7 @@
           <span><i class="dot l0"></i>normal</span><span><i class="dot l1"></i>caution</span><span><i class="dot l2"></i>at limit</span>
           <em>servo colors</em>
         </div>
+        <div class="lim-badge" id="limBadge" hidden></div>
         <div class="demo-bar" id="demoBar" hidden>
           <span>Demo</span><div class="track"><div id="demoFill"></div></div><b id="demoTime">0 s</b>
         </div>
@@ -89,6 +90,21 @@
         <div class="chart"><canvas id="chartTq" height="150"></canvas><span class="ylab">torque %</span></div>
         <div class="chart"><canvas id="chartT" height="150"></canvas><span class="ylab">°C</span></div>
         <div class="series" id="series"></div>
+      </section>
+
+      <section class="card adv-only">
+        <h3>Torque limiter</h3>
+        <div class="row">
+          <label class="check"><input type="checkbox" id="limOn" checked><span>On</span></label>
+          <span class="lbl">Limit</span>
+          <div class="seg small" id="limSeg" aria-label="Torque limit">
+            <button data-p="70">70%</button><button data-p="80" class="on">80%</button><button data-p="90">90%</button>
+          </div>
+        </div>
+        <p class="lim-state" id="limState"></p>
+        <p class="hint">Every move is speed- and acceleration-limited, and each arm servo is kept below the limit
+          (or what gravity needs plus 10% when a heavy load requires more). If a joint stays at the limit without
+          getting closer for 1 s, the motion stops: collision or jam.</p>
       </section>
 
       <section class="card adv-only">

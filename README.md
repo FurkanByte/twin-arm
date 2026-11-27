@@ -345,9 +345,29 @@ Firewall asks for permission on the first run, tick "Private networks".
 
 **STOP:** holds the arm where it is (in software). The real emergency stop is the red button on the box.
 
-**Accuracy:** Sim mode gives the same results as the validation simulations. In the 150 g demo the
-peak torque is shoulder 74%, elbow 53%, wrist 42%; when holding horizontally, shoulder 66% and
-3.8 min to 65 °C.
+**Torque limiter (on by default, Advanced view):** commands never jump straight to the servos. It works in
+three layers:
+- **Motion profile:** every move follows a speed- and acceleration-limited path. For a pose command all
+  joints start and arrive together.
+- **Torque clamp:** a position servo's effort grows with the error between command and actual angle, and it
+  reaches stall torque at about 3°. The command sent to each arm servo is therefore kept within the limit's
+  share of that error from the measured angle. The limit is 80% by default; when gravity alone needs more,
+  it becomes gravity + 10%, never above 98%.
+- **Governor:** near the limit the whole motion slows down, and it speeds up again when the load drops.
+
+If a joint stays at the limit for 1 s without getting closer, the motion is stopped and logged as a
+probable collision or jam. The same logic runs on the real arm, using the angle from the potentiometer.
+
+Simulated pose jumps with a 150 g payload:
+- **Without the limiter:** shoulder, elbow and wrist hit 100% (saturation) on every jump.
+- **With the limiter:** peaks stay at 36–81%, except shoulder 90% when lifting back from full reach.
+  Moves take 0.7–4.5 s instead of 0.2–0.6 s.
+
+**Accuracy:** With the torque limiter off, Sim mode gives the same results as the validation simulations:
+- 150 g demo peak torque: shoulder 74%, elbow 53%, wrist 42%.
+- Holding horizontally: shoulder 66%, and 3.8 min to 65 °C.
+
+With the limiter on, the demo peaks are shoulder 68%, elbow 56% and wrist 57%, at unchanged speed.
 
 **Live mode protocol:**
 - Every 10 ms the ESP32 sends this line: `{"q":[6 angles °],"i":[6 currents A],"T":[6 °C],"v":12.1}`.

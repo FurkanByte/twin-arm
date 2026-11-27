@@ -132,6 +132,8 @@ class Twin:
         for j in JOINTS:
             self.pct[j] = 100.0 * tau[j] / self.stall[j]
             self.cur[j] = IDLE_CURRENT + STALL_CURRENT[SERVO[j]] * self.pct[j] / 100.0
+            # torque gravity alone needs at this pose (bias force; velocities are small here)
+            self.expected[j] = 100.0 * abs(float(self.d.qfrc_bias[self.vadr[j]])) / self.stall[j]
 
     def apply_measured(self, q_deg, cur, temp):
         for j, a in zip(JOINTS, q_deg):
@@ -220,6 +222,123 @@ def list_ports():
 
 
 # ------------------------------------------------------------------------------------------
+# Motion shaping + software torque limiter
+# ------------------------------------------------------------------------------------------
+KP_ERR_DEG = 3.0          # servo model (src/arm_mujoco.py): stall torque is reached at 3° position error
+VMAX = {"base_yaw": 90.0, "shoulder": 60.0, "elbow": 70.0, "wrist_pitch": 90.0, "wrist_roll": 120.0,
+        "gripper_pinion": 150.0}                                   # deg/s, well under no-load speed
+AMAX = {"base_yaw": 240.0, "shoulder": 150.0, "elbow": 180.0, "wrist_pitch": 240.0, "wrist_roll": 360.0,
+        "gripper_pinion": 600.0}                                   # deg/s²
+TORQUE_LIMITED = [j for j in JOINTS if j != "gripper_pinion"]      # the gripper squeezes on purpose
+BLOCK_TIME = 1.0          # s at the torque limit without progress -> the motion is stopped
+
+
+class MotionLimiter:
+    """Turns a jump in the goal into a smooth, speed- and acceleration-limited move and keeps every
+    arm servo below a torque limit.
+
+    1. Profile: each joint follows a velocity/acceleration-limited path to its goal. For a pose
+       command the joints are time-synchronised, so they start and arrive together.
+    2. Torque clamp: a position servo's effort grows with the error between command and actual angle
+       (stall at KP_ERR_DEG). The command sent to a servo is kept within limit% of that error from
+       the measured angle, so the servo never asks for more than limit% of its stall torque.
+    3. Governor: while any arm servo works near the limit, the whole motion slows down; it speeds
+       back up when the load drops. Works the same on the real arm (angle from the potentiometer).
+    """
+
+    def __init__(self, start_deg, limit_pct=80.0):
+        self.enabled = True
+        self.limit_pct = limit_pct
+        self.reset(start_deg)
+
+    def reset(self, start_deg):
+        self.sp = dict(start_deg)                # profiled setpoint (deg)
+        self.v = {j: 0.0 for j in JOINTS}        # deg/s
+        self.goal = dict(start_deg)
+        self.vlim = dict(VMAX)
+        self.speed = 1.0                         # governor factor 0.1 .. 1
+        self.clamped = set()
+        self.cmd = dict(start_deg)
+        self.stuck_t = {j: 0.0 for j in JOINTS}  # time spent at the limit without getting closer
+        self.best_err = {j: 0.0 for j in JOINTS}
+        self.blocked = []
+
+    def set_goal(self, goal_deg, sync=False):
+        moved = {j for j in JOINTS if abs(goal_deg[j] - self.goal[j]) > 1e-6}
+        self.goal = dict(goal_deg)
+        if not moved:
+            return
+        if sync:                                 # pose command: all joints arrive together
+            t = max(abs(self.goal[j] - self.sp[j]) / VMAX[j] for j in JOINTS)
+            for j in JOINTS:
+                d = abs(self.goal[j] - self.sp[j])
+                self.vlim[j] = VMAX[j] if t < 1e-6 else min(VMAX[j], max(d / t, 2.0))
+        else:
+            for j in moved:
+                self.vlim[j] = VMAX[j]
+
+    def budget(self, grav):
+        """Torque budget per joint (% of stall): the limit, or what gravity needs plus 10 %,
+        whichever is higher (never above 98 %), so a heavy load can still be held and lifted."""
+        return {j: min(98.0, max(self.limit_pct, grav.get(j, 0.0) + 10.0)) for j in JOINTS}
+
+    def step(self, dt, q_deg, pct, grav=None):
+        b = self.budget(grav or {})
+        self.last_budget = b
+        if self.enabled:
+            worst = max(pct[j] - b[j] for j in TORQUE_LIMITED) + self.limit_pct
+            if worst > self.limit_pct - 5:
+                self.speed = max(0.1, self.speed - 3.0 * dt)
+            elif worst < self.limit_pct - 20:
+                self.speed = min(1.0, self.speed + 0.6 * dt)
+        else:
+            self.speed = 1.0
+        g = self.speed
+        for j in JOINTS:
+            err = self.goal[j] - self.sp[j]
+            a = AMAX[j] * g
+            v_des = math.copysign(min(self.vlim[j] * g, math.sqrt(2.0 * a * abs(err))), err)
+            dv = max(-a * dt, min(a * dt, v_des - self.v[j]))
+            self.v[j] += dv
+            nxt = self.sp[j] + self.v[j] * dt
+            if (self.goal[j] - nxt) * err <= 0:  # reached or passed the goal
+                nxt, self.v[j] = self.goal[j], 0.0
+            self.sp[j] = nxt
+        cmd = dict(self.sp)
+        self.clamped = set()
+        if self.enabled:
+            for j in TORQUE_LIMITED:
+                e = b[j] / 100.0 * KP_ERR_DEG
+                lo, hi = q_deg[j] - e, q_deg[j] + e
+                if not lo <= cmd[j] <= hi:
+                    cmd[j] = min(max(cmd[j], lo), hi)
+                    self.sp[j] = cmd[j]          # the profile waits for the servo to catch up
+                    self.v[j] *= 0.5
+                    self.clamped.add(j)
+        # jam / collision: at the torque limit for BLOCK_TIME s without getting closer to the goal
+        self.blocked = []
+        for j in TORQUE_LIMITED:
+            err = abs(self.goal[j] - q_deg[j])
+            if j in self.clamped and err > 1.5 and err >= self.best_err[j] - 0.3:
+                self.stuck_t[j] += dt
+            else:
+                self.stuck_t[j] = 0.0
+                self.best_err[j] = err
+            self.best_err[j] = min(self.best_err[j], err)
+            if self.stuck_t[j] >= BLOCK_TIME:
+                self.blocked.append(j)
+        self.cmd = cmd
+        return cmd
+
+    def hold(self, q_deg):
+        self.reset(q_deg)
+
+    @property
+    def moving(self):
+        return any(abs(self.goal[j] - self.sp[j]) > 0.05 or abs(self.v[j]) > 0.05 for j in JOINTS)
+
+
+# ------------------------------------------------------------------------------------------
 class Controller:
     """Session state + 100 Hz simulation/telemetry loop. All access goes through the lock."""
 
@@ -238,10 +357,32 @@ class Controller:
         self.events = deque(maxlen=80)
         self._alert_state = {}               # key -> first/last seen, shown (debounced alerts)
         self.message = ""
+        self.lim = MotionLimiter(self._q())
+        self._tx = 0
+        self._live_sync = True
         if port:
             self.connect(port)
         self._thread = threading.Thread(target=self._loop, daemon=True)
         self._thread.start()
+
+    def _q(self):
+        return {j: self.twin.q_deg(j) for j in JOINTS}
+
+    def _goal(self, sync=False):
+        self.lim.set_goal({j: math.degrees(v) for j, v in self.targets.items()}, sync=sync)
+
+    def _reset_motion(self):
+        self.lim.reset(self._q())
+        self.targets = {j: math.radians(v) for j, v in self._q().items()}
+
+    def _halt_blocked(self):
+        names = ", ".join(NAMES[j] for j in self.lim.blocked)
+        self.demo_t = None
+        self._reset_motion()
+        self._send_targets()
+        text = f"Motion stopped: {names} at the torque limit without progress (collision or jam?)"
+        self.message = text
+        self._event(2, text)
 
     # --- loop --------------------------------------------------------------------------------
     def _loop(self):
@@ -257,7 +398,9 @@ class Controller:
                     if self.demo_t is not None and not self.stopped:
                         self.demo_t += dt
                         self.targets = self._demo_targets(self.demo_t)
-                    tw.step_sim(dt, self.targets)
+                        self._goal()
+                    cmd = self.lim.step(dt, self._q(), tw.pct, tw.expected)
+                    tw.step_sim(dt, {j: math.radians(v) for j, v in cmd.items()})
                     tw.thermal(dt * self.warp)
                 else:
                     msg = None
@@ -266,13 +409,23 @@ class Controller:
                     if msg:
                         q = msg.get("q") or [tw.q_deg(j) for j in JOINTS]
                         tw.apply_measured(q, msg.get("i"), msg.get("T"))
+                        if self._live_sync:              # first data after connecting: hold where the arm is
+                            self._reset_motion()
+                            self._live_sync = False
                         self.vin = msg.get("v")
                         if msg.get("T") is None:
                             tw.thermal(dt * self.warp)
                     if self.demo_t is not None and not self.stopped:
                         self.demo_t += dt
                         self.targets = self._demo_targets(self.demo_t)
+                        self._goal()
+                    was_moving = self.lim.moving
+                    self.lim.step(dt, self._q(), tw.pct, tw.expected)
+                    self._tx += 1
+                    if (was_moving or self.lim.clamped) and self._tx % 2 == 0:     # 50 Hz while moving
                         self._send_targets()
+                if self.lim.blocked and not self.stopped:
+                    self._halt_blocked()
                 tw.update_power(dt * self.warp)
                 self._update_events()
 
@@ -288,7 +441,7 @@ class Controller:
     def _send_targets(self):
         if self.serial:
             try:
-                self.serial.write("J " + " ".join(f"{math.degrees(self.targets[j]):.1f}" for j in JOINTS) + "\n")
+                self.serial.write("J " + " ".join(f"{self.lim.cmd[j]:.1f}" for j in JOINTS) + "\n")
             except Exception as e:
                 self.message = f"Could not send to ESP32: {e}"
 
@@ -299,7 +452,7 @@ class Controller:
             if kind == "stop":
                 self.stopped = True
                 self.demo_t = None
-                self.targets = {j: math.radians(self.twin.q_deg(j)) for j in JOINTS}
+                self._reset_motion()
                 if self.serial:
                     try:
                         self.serial.write("S\n")
@@ -318,6 +471,14 @@ class Controller:
             if kind == "warp":
                 self.warp = max(1, min(int(c.get("x", 1)), 600))
                 return
+            if kind == "limiter":
+                if "on" in c:
+                    self.lim.enabled = bool(c["on"])
+                if "pct" in c:
+                    self.lim.limit_pct = max(50.0, min(float(c["pct"]), 100.0))
+                self._event(0, f"Torque limiter {'on' if self.lim.enabled else 'off'}"
+                               f" ({self.lim.limit_pct:.0f}% of stall)")
+                return
             if kind == "cool":
                 for j in JOINTS:
                     self.twin.temp[j] = T_AMB
@@ -331,11 +492,14 @@ class Controller:
             if kind == "pose" and c.get("name") in self.twin.keys:
                 self.demo_t = None
                 self.targets = self.twin.key_targets(c["name"])
-                self._send_targets()
+                self._goal(sync=True)
+                self.message = ""
+
             elif kind == "demo":
                 if c.get("on"):
                     if self.mode == "sim":
                         self.twin.reset(DEMO[0][1])
+                        self._reset_motion()
                     self.demo_t = 0.0
                 else:
                     self.demo_t = None
@@ -344,7 +508,8 @@ class Controller:
                 lo, hi = RANGE[j]
                 self.demo_t = None
                 self.targets[j] = math.radians(min(max(float(c.get("deg", 0)), lo), hi))
-                self._send_targets()
+                self._goal()
+                self.message = ""
 
     def _set_mode(self, mode, port=None):
         if mode == "live":
@@ -361,7 +526,7 @@ class Controller:
                 self.serial = None
             self.mode = "sim"
             self.twin.reset("ready")
-            self.targets = self.twin.key_targets("ready")
+            self._reset_motion()
             self.demo_t = None
             self.message = ""
 
@@ -374,6 +539,7 @@ class Controller:
             self.serial.start()
             self.port = port
             self.mode = "live"
+            self._live_sync = True
             self.message = f"{port} connected"
             self._event(0, f"ESP32 connected: {port}")
         except Exception as e:
@@ -448,6 +614,8 @@ class Controller:
                 "demoLen": DEMO[-1][0], "payload": self.payload, "warp": self.warp, "stopped": self.stopped,
                 "bodies": bodies, "joints": joints, "rails": rails,
                 "input12": round(sum(rails.values()) * SUPPLY_V / 12 / 0.9, 2), "vin": self.vin,
+                "limiter": {"on": self.lim.enabled, "pct": self.lim.limit_pct, "speed": round(self.lim.speed, 2),
+                            "clamped": [NAMES[j] for j in sorted(self.lim.clamped)], "moving": self.lim.moving},
                 "alerts": alerts, "events": list(self.events)[:30], "message": self.message,
             }
 

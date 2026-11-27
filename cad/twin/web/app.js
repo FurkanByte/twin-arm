@@ -219,6 +219,8 @@ segBind('#payloadSeg', 'g', (g) => send({ cmd: 'payload', g: +g }));
 segBind('#warpSeg', 'x', (x) => send({ cmd: 'warp', x: +x }));
 segBind('#modeSeg', 'm', (m) => send({ cmd: 'mode', mode: m, port: $('#portSel').value || undefined }));
 $('#coolBtn').onclick = () => send({ cmd: 'cool' });
+$('#limOn').onchange = (e) => send({ cmd: 'limiter', on: e.target.checked });
+segBind('#limSeg', 'p', (p) => send({ cmd: 'limiter', pct: +p }));
 $('#demoBtn').onclick = () => send({ cmd: 'demo', on: !(last && last.demo !== null) });
 $('#stopBtn').onclick = () => send({ cmd: last && last.stopped ? 'resume' : 'stop' });
 
@@ -297,6 +299,26 @@ function updatePanels() {
   segSet('#modeSeg', 'm', st.mode);
   segSet('#payloadSeg', 'g', st.payload);
   segSet('#warpSeg', 'x', st.warp);
+
+  // torque limiter
+  const L2 = st.limiter;
+  if (L2) {
+    if (document.activeElement !== $('#limOn')) $('#limOn').checked = L2.on;
+    segSet('#limSeg', 'p', Math.round(L2.pct));
+    const atLimit = L2.clamped.length ? L2.clamped.join(', ') : 'none';
+    $('#limState').textContent = L2.on
+      ? `Motion speed ${Math.round(L2.speed * 100)}% · at the limit: ${atLimit}`
+      : 'Off: servos may saturate on fast moves';
+    const badge = $('#limBadge');
+    let text = '';
+    if (!L2.on) text = 'Torque limiter OFF';
+    else if (L2.moving && (L2.speed < 0.97 || L2.clamped.length)) {
+      text = L2.clamped.length ? `Torque limiter: holding ${atLimit}` : `Torque limiter: slowing to ${Math.round(L2.speed * 100)}%`;
+    }
+    badge.hidden = !text;
+    badge.textContent = text;
+    badge.classList.toggle('off', !L2.on);
+  }
   const stop = $('#stopBtn');
   stop.textContent = st.stopped ? 'RESUME' : 'STOP';
   stop.classList.toggle('resume', st.stopped);
